@@ -1,0 +1,32 @@
+### macOS ###
+
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+### Xcode ###
+
+## User settings
+xcuserdata/
+
+# Swift Package Manager
+Packages/
+Package.pins
+Package.resolved
+.build/
+
+### Carthage ###
+
+Carthage/
+
+### Fastlane ###
+
+fastlane/report.xml
+fastlane/Preview.html
+fastlane/screenshots
+fastlane/test_output
+Preview.html
