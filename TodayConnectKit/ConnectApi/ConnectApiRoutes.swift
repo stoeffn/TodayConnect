@@ -33,4 +33,11 @@ enum ConnectApiRoutes: ApiRoutes {
             return [URLQueryItem(name: "storefront", value: countryCode)]
         }
     }
+
+    var responseType: Decodable.Type? {
+        switch self {
+        case .reviewSummary:
+            return ConnectResponse<ReviewSummaryResponse>.self
+        }
+    }
 }

@@ -40,16 +40,13 @@ protocol ApiRoutes {
 
     /// Returns the full URL for this route.
     ///
-    /// - Parameters:
-    ///   - baseUrl: Base URL to append route to.
-    ///   - parameters: Optional URL query parameters.
+    /// - Parameter baseUrl: Base URL to append route to.
     /// - Returns: Full URL for this route.
-    func url(for baseUrl: URL, parameters: [URLQueryItem]) -> URL
+    func url(for baseUrl: URL) -> URL
 
     /// Returns a ready-to-use `URLRequest` to use for this route.
     ///
-    /// - Parameters:
-    ///   - baseUrl: Base URL to append route to.
+    /// - Parameter baseUrl: Base URL to append route to.
     /// - Returns: Request for this route.
     func request(for baseUrl: URL) -> URLRequest
 }
@@ -77,7 +74,7 @@ extension ApiRoutes {
         return nil
     }
 
-    func url(for baseUrl: URL, parameters: [URLQueryItem] = []) -> URL {
+    func url(for baseUrl: URL) -> URL {
         let url = baseUrl.appendingPathComponent(path)
         var components = URLComponents(url: url, resolvingAgainstBaseURL: false)
         components?.queryItems = parameters
@@ -85,7 +82,7 @@ extension ApiRoutes {
     }
 
     func request(for baseUrl: URL) -> URLRequest {
-        var request = URLRequest(url: url(for: baseUrl, parameters: parameters))
+        var request = URLRequest(url: url(for: baseUrl))
         request.httpMethod = method.rawValue
         request.allHTTPHeaderFields = headers
         request.httpBody = body

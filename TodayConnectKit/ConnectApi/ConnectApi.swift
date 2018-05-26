@@ -52,4 +52,15 @@ public final class ConnectApi {
             completion(result.map { AuthorizationApi(appConfig: $0, cookieStorage: ConnectApi.defaultCookieStorage) })
         }
     }
+
+    // MARK: - Reviews
+
+    @discardableResult
+    public func reviewSummary(forAppId appId: String, platform: Platforms, countryCode: String,
+                              completion: @escaping ResultHandler<ReviewSummaryResponse>) -> URLSessionTask {
+        let route = ConnectApiRoutes.reviewSummary(appId: appId, platform: platform, countryCode: countryCode)
+        return api.request(route) { (result: ApiResult<ConnectResponse<ReviewSummaryResponse>>) in
+            completion(result.map { $0.value.data })
+        }
+    }
 }

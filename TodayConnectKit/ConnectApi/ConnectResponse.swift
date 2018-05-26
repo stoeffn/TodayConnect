@@ -17,25 +17,11 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-typealias ApiResult<Value> = Result<(value: Value, response: HTTPURLResponse)>
-
-typealias ApiResultHandler<Value> = (ApiResult<Value>) -> Void
-
-extension Result where Value == (value: Data, response: HTTPURLResponse) {
-    /// Creates a new result based on the result of an HTTP request with its response, data, and error.
-    init(data: Data?, response: HTTPURLResponse?, error: Error?) {
-        if error == nil, let response = response, let data = data {
-            self = .success((data, response))
-            return
-        }
-        self = .failure(error)
+struct ConnectResponse<Object: Codable>: Codable {
+    enum StatusCode: String, Codable {
+        case success = "SUCCESS"
     }
 
-    /// Returns the API result decoded from its JSON representation. If the data is not valid, the return value will be a
-    /// `.failure`.
-    ///
-    /// - Parameter type: Expected object type.
-    func decoded<Value: Decodable>(_ type: Value.Type) -> ApiResult<Value> {
-        return map { (try JSONDecoder().decode(type, from: $0.value), $0.response) }
-    }
+    let data: Object
+    let statusCode: StatusCode
 }

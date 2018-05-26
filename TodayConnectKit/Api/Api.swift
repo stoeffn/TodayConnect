@@ -47,9 +47,7 @@ class Api<Routes: ApiRoutes> {
         self.session = session
     }
 
-    // MARK: - Creating Requests
-
-    // MARK: - Making Data Requests
+    // MARK: - Performing Data Requests
 
     /// Requests data from this API.
     ///

@@ -30,7 +30,7 @@ enum OlympusApiRoutes: ApiRoutes {
     var parameters: [URLQueryItem] {
         switch self {
         case let .appConfiguration(host):
-            return [URLQueryItem(name: "host", value: host)]
+            return [URLQueryItem(name: "hostname", value: host)]
         }
     }
 

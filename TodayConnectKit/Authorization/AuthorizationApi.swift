@@ -79,7 +79,7 @@ public final class AuthorizationApi {
 
         return api.request(.verify(sessionId: sessionId, scnt: scnt, securityCode: code)) { result in
             switch result.value?.response.statusCode {
-            case 200:
+            case 200, 204:
                 return completion(.success(()))
             case 401, 403:
                 return completion(.failure(Errors.invalidSecurityCode))

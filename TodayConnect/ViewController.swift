@@ -22,6 +22,7 @@ import TodayConnectKit
 
 final class ViewController: NSViewController {
     private let api = ConnectApi()
+    private var authorizationApi: AuthorizationApi?
 
     @IBOutlet var emailTextField: NSTextField!
 
@@ -32,25 +33,32 @@ final class ViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        api.refreshConfiguration { print($0) }
+        api.authorizationApi { result in
+            print(result)
+            self.authorizationApi = result.value
+        }
     }
 
     @IBAction
     func logIn(_ sender: Any) {
-        api.login(email: emailTextField.stringValue, password: passwordTextfield.stringValue) { print($0) }
+        authorizationApi?.logIn(email: emailTextField.stringValue, password: passwordTextfield.stringValue) { print($0) }
     }
 
     @IBAction
     func verifyDevice(_ sender: Any) {
-        api.verifyDevice(securityCode: securityCodeTextField.stringValue) { result in
+        authorizationApi?.verifySecurityCode(code: securityCodeTextField.stringValue) { result in
             print(result)
 
-            self.api.trust { result in
+            self.authorizationApi?.trust { result in
                 print(result)
-                self.api.test(completion: { result in
-                    print(result)
-                })
             }
+        }
+    }
+
+    @IBAction
+    func test(_ sender: Any) {
+        api.reviewSummary(forAppId: "1317593772", platform: .iOS, countryCode: "DE") { result in
+            print(result)
         }
     }
 }

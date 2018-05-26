@@ -17,25 +17,13 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-typealias ApiResult<Value> = Result<(value: Value, response: HTTPURLResponse)>
-
-typealias ApiResultHandler<Value> = (ApiResult<Value>) -> Void
-
-extension Result where Value == (value: Data, response: HTTPURLResponse) {
-    /// Creates a new result based on the result of an HTTP request with its response, data, and error.
-    init(data: Data?, response: HTTPURLResponse?, error: Error?) {
-        if error == nil, let response = response, let data = data {
-            self = .success((data, response))
-            return
-        }
-        self = .failure(error)
-    }
-
-    /// Returns the API result decoded from its JSON representation. If the data is not valid, the return value will be a
-    /// `.failure`.
-    ///
-    /// - Parameter type: Expected object type.
-    func decoded<Value: Decodable>(_ type: Value.Type) -> ApiResult<Value> {
-        return map { (try JSONDecoder().decode(type, from: $0.value), $0.response) }
-    }
+public struct ReviewSummaryResponse: Codable {
+    public let reviewCount: Int
+    public let ratingCount: Int
+    public let ratingOneCount: Int
+    public let ratingTwoCount: Int
+    public let ratingThreeCount: Int
+    public let ratingFourCount: Int
+    public let ratingFiveCount: Int
+    public let averageRating: Double
 }

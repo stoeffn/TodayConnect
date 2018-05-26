@@ -17,6 +17,6 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-enum Platforms: String {
+public enum Platforms: String, Codable {
     case iOS, macOS, watchOS, tvOS
 }
