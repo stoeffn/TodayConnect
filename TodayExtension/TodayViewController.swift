@@ -19,8 +19,10 @@
 
 import Cocoa
 import NotificationCenter
+import TodayConnectKit
 
 final class TodayViewController: NSViewController, NCWidgetProviding {
+    private let api = ConnectApi()
 
     // MARK: - Life Cycle
 
@@ -28,21 +30,23 @@ final class TodayViewController: NSViewController, NCWidgetProviding {
         return NSNib.Name("TodayViewController")
     }
 
-    func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-        // Update your data and prepare for a snapshot. Call completion handler when you are done
-        // with NoData if nothing has changed or NewData if there is new data since the last
-        // time we called you
-        completionHandler(.noData)
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateUI()
+    }
 
-        fiveStarRatingBar.percentage = 0.8
-        fourStarRatingBar.percentage = 0.1
-        threeStarRatingBar.percentage = 0.05
-        twoStarRatingBar.percentage = 0.05
-        oneStarRatingBar.percentage = 0
+    func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
+        api.reviewSummary(forAppId: "1317593772", platform: .iOS, countryCode: "DE") { result in
+            switch result {
+            case let .success(reviewSummary) where reviewSummary != self.reviewSummary:
+                DispatchQueue.main.async { self.reviewSummary = reviewSummary }
+                completionHandler(.newData)
+            case .success:
+                completionHandler(.noData)
+            case .failure:
+                completionHandler(.failed)
+            }
+        }
     }
 
     // MARK: - User Interface
@@ -68,4 +72,47 @@ final class TodayViewController: NSViewController, NCWidgetProviding {
     @IBOutlet var oneStarRatingBar: RatingBarView!
 
     @IBOutlet var oneStarRatingLabel: NSTextField!
+
+    private var ratingLabels: [NSTextField] {
+        return [fiveStarRatingLabel, fourStarRatingLabel, threeStarRatingLabel, twoStarRatingLabel, oneStarRatingLabel]
+    }
+
+    private var ratingBars: [RatingBarView] {
+        return [fiveStarRatingBar, fourStarRatingBar, threeStarRatingBar, twoStarRatingBar, oneStarRatingBar]
+    }
+
+    private lazy var ratingNumberFormatter: NumberFormatter = {
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .decimal
+        formatter.minimumFractionDigits = 1
+        formatter.maximumFractionDigits = 1
+        return formatter
+    }()
+
+    var reviewSummary: ReviewSummaryResponse? {
+        didSet { updateUI() }
+    }
+
+    private func updateUI() {
+        guard let reviewSummary = reviewSummary else {
+            ratingLabel.stringValue = "—"
+            ratingLabels.forEach { $0.stringValue = "—" }
+            ratingBars.forEach { $0.percentage = 0 }
+            return
+        }
+
+        ratingLabel.stringValue = ratingNumberFormatter.string(from: NSNumber(value: reviewSummary.averageRating)) ?? "—"
+
+        fiveStarRatingLabel.integerValue = reviewSummary.ratingFiveCount
+        fourStarRatingLabel.integerValue = reviewSummary.ratingFourCount
+        threeStarRatingLabel.integerValue = reviewSummary.ratingThreeCount
+        twoStarRatingLabel.integerValue = reviewSummary.ratingTwoCount
+        oneStarRatingLabel.integerValue = reviewSummary.ratingOneCount
+
+        fiveStarRatingBar.percentage = Double(reviewSummary.ratingFiveCount) / Double(reviewSummary.ratingCount)
+        fourStarRatingBar.percentage = Double(reviewSummary.ratingFourCount) / Double(reviewSummary.ratingCount)
+        threeStarRatingBar.percentage = Double(reviewSummary.ratingThreeCount) / Double(reviewSummary.ratingCount)
+        twoStarRatingBar.percentage = Double(reviewSummary.ratingTwoCount) / Double(reviewSummary.ratingCount)
+        oneStarRatingBar.percentage = Double(reviewSummary.ratingOneCount) / Double(reviewSummary.ratingCount)
+    }
 }

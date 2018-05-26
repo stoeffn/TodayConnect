@@ -28,10 +28,10 @@
         <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
         <customObject id="-3" userLabel="Application" customClass="NSObject"/>
         <customView simulatedAppContext="notificationCenter" translatesAutoresizingMaskIntoConstraints="NO" id="Hz6-mo-xeY">
-            <rect key="frame" x="0.0" y="0.0" width="407" height="61"/>
+            <rect key="frame" x="0.0" y="0.0" width="407" height="64"/>
             <subviews>
                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" alphaValue="0.90000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="G6C-hR-yMb">
-                    <rect key="frame" x="6" y="14" width="73" height="51"/>
+                    <rect key="frame" x="6" y="17" width="73" height="51"/>
                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="5.0" id="vYf-ch-gwZ">
                         <font key="font" metaFont="systemSemibold" size="42"/>
                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
@@ -47,7 +47,7 @@
                     </textFieldCell>
                 </textField>
                 <stackView distribution="fill" orientation="vertical" alignment="trailing" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DPx-rm-1VS">
-                    <rect key="frame" x="81" y="2" width="318" height="54"/>
+                    <rect key="frame" x="81" y="5" width="318" height="54"/>
                     <subviews>
                         <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ja1-TZ-w58">
                             <rect key="frame" x="0.0" y="43" width="318" height="11"/>
@@ -113,7 +113,7 @@
                                         <constraint firstAttribute="height" constant="2" id="LVZ-CM-okT"/>
                                     </constraints>
                                 </customView>
-                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="BJ5-Vn-QqB">
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="BJ5-Vn-QqB">
                                     <rect key="frame" x="304" y="0.0" width="16" height="11"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="42" id="a9l-ch-qCz">
                                         <font key="font" metaFont="miniSystem"/>
@@ -184,7 +184,7 @@
                                 <customView horizontalCompressionResistancePriority="250" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="pPa-sN-Lma" customClass="RatingBarView" customModule="TodayExtension" customModuleProvider="target">
                                     <rect key="frame" x="44" y="5" width="245" height="2"/>
                                 </customView>
-                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="1Di-72-8JH">
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="1Di-72-8JH">
                                     <rect key="frame" x="295" y="0.0" width="16" height="11"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="42" id="zrI-qp-Zsf">
                                         <font key="font" metaFont="miniSystem"/>
@@ -246,7 +246,7 @@
                                 <customView horizontalCompressionResistancePriority="250" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="ies-dv-pg5" customClass="RatingBarView" customModule="TodayExtension" customModuleProvider="target">
                                     <rect key="frame" x="35" y="4" width="245" height="2"/>
                                 </customView>
-                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="ZMx-NZ-o6k">
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="ZMx-NZ-o6k">
                                     <rect key="frame" x="286" y="0.0" width="16" height="10"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="42" id="957-kK-ubN">
                                         <font key="font" metaFont="miniSystem"/>
@@ -343,7 +343,7 @@
                                 <customView horizontalCompressionResistancePriority="250" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="OGr-SW-MEF" customClass="RatingBarView" customModule="TodayExtension" customModuleProvider="target">
                                     <rect key="frame" x="17" y="4" width="245" height="2"/>
                                 </customView>
-                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="eDF-Wy-7zW">
+                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="eDF-Wy-7zW">
                                     <rect key="frame" x="268" y="0.0" width="16" height="11"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="42" id="MNy-cr-KgV">
                                         <font key="font" metaFont="miniSystem"/>
@@ -413,7 +413,7 @@
                 <constraint firstAttribute="trailing" secondItem="DPx-rm-1VS" secondAttribute="trailing" constant="8" id="Rd5-SY-2cr"/>
                 <constraint firstItem="G6C-hR-yMb" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="-4" id="ceW-xh-9yU"/>
                 <constraint firstItem="EOH-1i-bMT" firstAttribute="trailing" secondItem="G6C-hR-yMb" secondAttribute="trailing" id="ck2-wq-iEA"/>
-                <constraint firstItem="EOH-1i-bMT" firstAttribute="top" secondItem="G6C-hR-yMb" secondAttribute="bottom" constant="-7" id="jBq-Fu-jF5"/>
+                <constraint firstItem="EOH-1i-bMT" firstAttribute="top" secondItem="G6C-hR-yMb" secondAttribute="bottom" constant="-4" id="jBq-Fu-jF5"/>
                 <constraint firstItem="DPx-rm-1VS" firstAttribute="top" secondItem="Hz6-mo-xeY" secondAttribute="top" constant="5" id="lRg-Zl-Ccf"/>
                 <constraint firstAttribute="bottom" secondItem="EOH-1i-bMT" secondAttribute="bottom" constant="2" id="pye-0A-neD"/>
             </constraints>
