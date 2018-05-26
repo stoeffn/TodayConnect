@@ -22,6 +22,8 @@
 		24BF900620B8999F0098E71A /* TodayConnectKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 24BF8FF620B8999F0098E71A /* TodayConnectKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24BF900920B8999F0098E71A /* TodayConnectKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24BF8FF420B8999F0098E71A /* TodayConnectKit.framework */; };
 		24BF900A20B8999F0098E71A /* TodayConnectKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 24BF8FF420B8999F0098E71A /* TodayConnectKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		24BF901520B89B0D0098E71A /* Result.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF901420B89B0D0098E71A /* Result.swift */; };
+		24BF901B20B8A7920098E71A /* Result+Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF901A20B8A7920098E71A /* Result+Api.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +122,7 @@
 		24BF8FFC20B8999F0098E71A /* TodayConnectKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodayConnectKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		24BF900320B8999F0098E71A /* TodayConnectKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayConnectKitTests.swift; sourceTree = "<group>"; };
 		24BF900520B8999F0098E71A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		24BF901420B89B0D0098E71A /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -251,6 +254,8 @@
 		24BF8FF520B8999F0098E71A /* TodayConnectKit */ = {
 			isa = PBXGroup;
 			children = (
+				24BF901A20B8A7920098E71A /* Result+Api.swift */,
+				24BF901420B89B0D0098E71A /* Result.swift */,
 				24BF8FF620B8999F0098E71A /* TodayConnectKit.h */,
 				24BF8FF720B8999F0098E71A /* Info.plist */,
 			);
@@ -533,6 +538,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24BF901520B89B0D0098E71A /* Result.swift in Sources */,
+				24BF901B20B8A7920098E71A /* Result+Api.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
