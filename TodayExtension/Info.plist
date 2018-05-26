@@ -5,7 +5,7 @@
 	<key>CFBundleDevelopmentRegion</key>
 	<string>$(DEVELOPMENT_LANGUAGE)</string>
 	<key>CFBundleDisplayName</key>
-	<string>TodayExtension</string>
+	<string>Ratings</string>
 	<key>CFBundleExecutable</key>
 	<string>$(EXECUTABLE_NAME)</string>
 	<key>CFBundleIdentifier</key>
@@ -29,6 +29,8 @@
 			<key>NSExtensionPointVersion</key>
 			<string>2.0</string>
 		</dict>
+		<key>NSExtensionMainNibFile</key>
+		<string>TodayViewController</string>
 		<key>NSExtensionPointIdentifier</key>
 		<string>com.apple.widget-extension</string>
 		<key>NSExtensionPrincipalClass</key>
