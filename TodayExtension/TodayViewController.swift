@@ -21,6 +21,9 @@ import Cocoa
 import NotificationCenter
 
 final class TodayViewController: NSViewController, NCWidgetProviding {
+
+    // MARK: - Life Cycle
+
     override var nibName: NSNib.Name? {
         return NSNib.Name("TodayViewController")
     }
@@ -30,5 +33,51 @@ final class TodayViewController: NSViewController, NCWidgetProviding {
         // with NoData if nothing has changed or NewData if there is new data since the last
         // time we called you
         completionHandler(.noData)
+    }
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        initUI()
+    }
+
+    // MARK: - User Interface
+
+    @IBOutlet var ratingLabel: NSTextField!
+
+    @IBOutlet var fiveStarRatingBar: NSView!
+
+    @IBOutlet var fiveStarRatingLabel: NSTextField!
+
+    @IBOutlet var fourStarRatingBar: NSView!
+
+    @IBOutlet var fourStarRatingLabel: NSTextField!
+
+    @IBOutlet var threeStarRatingBar: NSView!
+
+    @IBOutlet var threeStarRatingLabel: NSTextField!
+
+    @IBOutlet var twoStarRatingBar: NSView!
+
+    @IBOutlet var twoStarRatingLabel: NSTextField!
+
+    @IBOutlet var oneStarRatingBar: NSView!
+
+    @IBOutlet var oneStarRatingLabel: NSTextField!
+
+    private var ratingBars: [NSView] {
+        return [
+            oneStarRatingBar,
+            twoStarRatingBar,
+            threeStarRatingBar,
+            fourStarRatingBar,
+            fiveStarRatingBar,
+        ]
+    }
+
+    private func initUI() {
+        for view in ratingBars {
+            view.wantsLayer = true
+            view.layer?.backgroundColor = NSColor.gray.cgColor
+        }
     }
 }

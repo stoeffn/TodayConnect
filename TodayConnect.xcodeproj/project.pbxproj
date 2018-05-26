@@ -40,6 +40,7 @@
 		24BF903920B97FF60098E71A /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF903820B97FF60098E71A /* App.swift */; };
 		24BF903B20B981D10098E71A /* ReviewSummaryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF903A20B981D10098E71A /* ReviewSummaryResponse.swift */; };
 		24BF903D20B981F80098E71A /* ConnectResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF903C20B981F80098E71A /* ConnectResponse.swift */; };
+		24F15FCB20B9AEF0009E00D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24BF8FA120B888AB0098E71A /* Assets.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -218,6 +219,7 @@
 				24BF900220B8999F0098E71A /* TodayConnectKitTests */,
 				24BF8FD620B88C3B0098E71A /* Frameworks */,
 				24BF8F9B20B888AA0098E71A /* Products */,
+				24BF8FA120B888AB0098E71A /* Assets.xcassets */,
 				24BF8FCB20B88AAC0098E71A /* LICENSE.md */,
 			);
 			sourceTree = "<group>";
@@ -240,7 +242,6 @@
 			children = (
 				24BF8F9D20B888AA0098E71A /* AppDelegate.swift */,
 				24BF8F9F20B888AA0098E71A /* ViewController.swift */,
-				24BF8FA120B888AB0098E71A /* Assets.xcassets */,
 				24BF8FA320B888AB0098E71A /* Main.storyboard */,
 				24BF8FA620B888AB0098E71A /* Info.plist */,
 				24BF8FA720B888AB0098E71A /* TodayConnect.entitlements */,
@@ -596,6 +597,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				24BF8FDE20B88C3B0098E71A /* TodayViewController.xib in Resources */,
+				24F15FCB20B9AEF0009E00D5 /* Assets.xcassets in Resources */,
 				24BF8FE220B88C3B0098E71A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
