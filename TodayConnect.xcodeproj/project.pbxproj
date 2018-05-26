@@ -31,6 +31,8 @@
 		24BF902120B9501E0098E71A /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF902020B9501E0098E71A /* Api.swift */; };
 		24BF902420B950400098E71A /* ApiRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF902320B950400098E71A /* ApiRoutes.swift */; };
 		24BF902620B950590098E71A /* HttpMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF902520B950590098E71A /* HttpMethods.swift */; };
+		24BF902C20B95C6E0098E71A /* OlympusApiRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF902B20B95C6E0098E71A /* OlympusApiRoutes.swift */; };
+		24BF903120B95FC80098E71A /* OlympusApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF903020B95FC80098E71A /* OlympusApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -138,6 +140,8 @@
 		24BF902020B9501E0098E71A /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		24BF902320B950400098E71A /* ApiRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRoutes.swift; sourceTree = "<group>"; };
 		24BF902520B950590098E71A /* HttpMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethods.swift; sourceTree = "<group>"; };
+		24BF902B20B95C6E0098E71A /* OlympusApiRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OlympusApiRoutes.swift; sourceTree = "<group>"; };
+		24BF903020B95FC80098E71A /* OlympusApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OlympusApi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,9 +273,10 @@
 		24BF8FF520B8999F0098E71A /* TodayConnectKit */ = {
 			isa = PBXGroup;
 			children = (
-				24BF902820B9507A0098E71A /* Extensions */,
 				24BF902720B9506F0098E71A /* ConnectApi */,
 				24BF902220B950280098E71A /* Api */,
+				24BF902820B9507A0098E71A /* Extensions */,
+				24BF902A20B95C3D0098E71A /* Olympus */,
 				24BF8FF620B8999F0098E71A /* TodayConnectKit.h */,
 				24BF8FF720B8999F0098E71A /* Info.plist */,
 			);
@@ -611,6 +616,7 @@
 				24BF901D20B8ACFD0098E71A /* LoginRequest.swift in Sources */,
 				24BF902120B9501E0098E71A /* Api.swift in Sources */,
 				24BF902420B950400098E71A /* ApiRoutes.swift in Sources */,
+				24BF903120B95FC80098E71A /* OlympusApi.swift in Sources */,
 				24BF901B20B8A7920098E71A /* Result+Api.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
