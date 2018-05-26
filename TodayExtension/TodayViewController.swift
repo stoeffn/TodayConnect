@@ -36,7 +36,7 @@ final class TodayViewController: NSViewController, NCWidgetProviding {
     }
 
     func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-        api.reviewSummary(forAppId: "1317593772", platform: .iOS, countryCode: "DE") { result in
+        api.reviewSummary(forAppId: "1317593772", platform: .iOS) { result in
             switch result {
             case let .success(reviewSummary) where reviewSummary != self.reviewSummary:
                 DispatchQueue.main.async { self.reviewSummary = reviewSummary }

@@ -56,7 +56,7 @@ public final class ConnectApi {
     // MARK: - Reviews
 
     @discardableResult
-    public func reviewSummary(forAppId appId: String, platform: Platforms, countryCode: String,
+    public func reviewSummary(forAppId appId: String, platform: Platforms, countryCode: String? = nil,
                               completion: @escaping ResultHandler<ReviewSummaryResponse>) -> URLSessionTask {
         let route = ConnectApiRoutes.reviewSummary(appId: appId, platform: platform, countryCode: countryCode)
         return api.request(route) { (result: ApiResult<ConnectResponse<ReviewSummaryResponse>>) in

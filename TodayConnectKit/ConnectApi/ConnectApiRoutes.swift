@@ -18,7 +18,7 @@
 //
 
 enum ConnectApiRoutes: ApiRoutes {
-    case reviewSummary(appId: String, platform: Platforms, countryCode: String)
+    case reviewSummary(appId: String, platform: Platforms, countryCode: String?)
 
     var path: String {
         switch self {
@@ -30,6 +30,7 @@ enum ConnectApiRoutes: ApiRoutes {
     var parameters: [URLQueryItem] {
         switch self {
         case let .reviewSummary(_, _, countryCode):
+            guard let countryCode = countryCode else { return [] }
             return [URLQueryItem(name: "storefront", value: countryCode)]
         }
     }
