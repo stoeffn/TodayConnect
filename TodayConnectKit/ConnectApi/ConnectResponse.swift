@@ -17,7 +17,7 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-struct ConnectResponse<Object: Codable>: Codable {
+struct ConnectResponse<Object: Codable & Equatable>: Codable, Equatable {
     enum StatusCode: String, Codable {
         case success = "SUCCESS"
     }

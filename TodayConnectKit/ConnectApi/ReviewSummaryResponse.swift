@@ -17,7 +17,7 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-public struct ReviewSummaryResponse: Codable {
+public struct ReviewSummaryResponse: Codable, Equatable {
     public let reviewCount: Int
     public let ratingCount: Int
     public let ratingOneCount: Int
