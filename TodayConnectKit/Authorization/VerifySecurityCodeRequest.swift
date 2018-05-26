@@ -17,7 +17,7 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-struct VerifyDeviceRequest: Codable {
+struct VerifySecurityCodeRequest: Codable {
     struct SecurityCode: Codable {
         let code: String
     }

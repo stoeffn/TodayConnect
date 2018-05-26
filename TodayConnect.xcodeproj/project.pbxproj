@@ -27,12 +27,14 @@
 		24BF901920B8A5E20098E71A /* AppConfigResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF901820B8A5E20098E71A /* AppConfigResponse.swift */; };
 		24BF901B20B8A7920098E71A /* Result+Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF901A20B8A7920098E71A /* Result+Api.swift */; };
 		24BF901D20B8ACFD0098E71A /* LoginRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF901C20B8ACFD0098E71A /* LoginRequest.swift */; };
-		24BF901F20B8B19C0098E71A /* VerifyDeviceRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF901E20B8B19C0098E71A /* VerifyDeviceRequest.swift */; };
+		24BF901F20B8B19C0098E71A /* VerifySecurityCodeRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF901E20B8B19C0098E71A /* VerifySecurityCodeRequest.swift */; };
 		24BF902120B9501E0098E71A /* Api.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF902020B9501E0098E71A /* Api.swift */; };
 		24BF902420B950400098E71A /* ApiRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF902320B950400098E71A /* ApiRoutes.swift */; };
 		24BF902620B950590098E71A /* HttpMethods.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF902520B950590098E71A /* HttpMethods.swift */; };
 		24BF902C20B95C6E0098E71A /* OlympusApiRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF902B20B95C6E0098E71A /* OlympusApiRoutes.swift */; };
+		24BF902F20B95DAE0098E71A /* AuthorizationApiRoutes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF902E20B95DAE0098E71A /* AuthorizationApiRoutes.swift */; };
 		24BF903120B95FC80098E71A /* OlympusApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF903020B95FC80098E71A /* OlympusApi.swift */; };
+		24BF903320B966100098E71A /* AuthorizationApi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF903220B966100098E71A /* AuthorizationApi.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,12 +138,14 @@
 		24BF901820B8A5E20098E71A /* AppConfigResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppConfigResponse.swift; sourceTree = "<group>"; };
 		24BF901A20B8A7920098E71A /* Result+Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Result+Api.swift"; sourceTree = "<group>"; };
 		24BF901C20B8ACFD0098E71A /* LoginRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRequest.swift; sourceTree = "<group>"; };
-		24BF901E20B8B19C0098E71A /* VerifyDeviceRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyDeviceRequest.swift; sourceTree = "<group>"; };
+		24BF901E20B8B19C0098E71A /* VerifySecurityCodeRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifySecurityCodeRequest.swift; sourceTree = "<group>"; };
 		24BF902020B9501E0098E71A /* Api.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Api.swift; sourceTree = "<group>"; };
 		24BF902320B950400098E71A /* ApiRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiRoutes.swift; sourceTree = "<group>"; };
 		24BF902520B950590098E71A /* HttpMethods.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpMethods.swift; sourceTree = "<group>"; };
 		24BF902B20B95C6E0098E71A /* OlympusApiRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OlympusApiRoutes.swift; sourceTree = "<group>"; };
+		24BF902E20B95DAE0098E71A /* AuthorizationApiRoutes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationApiRoutes.swift; sourceTree = "<group>"; };
 		24BF903020B95FC80098E71A /* OlympusApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OlympusApi.swift; sourceTree = "<group>"; };
+		24BF903220B966100098E71A /* AuthorizationApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationApi.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,8 +277,9 @@
 		24BF8FF520B8999F0098E71A /* TodayConnectKit */ = {
 			isa = PBXGroup;
 			children = (
-				24BF902720B9506F0098E71A /* ConnectApi */,
 				24BF902220B950280098E71A /* Api */,
+				24BF902D20B95D9B0098E71A /* Authorization */,
+				24BF902720B9506F0098E71A /* ConnectApi */,
 				24BF902820B9507A0098E71A /* Extensions */,
 				24BF902A20B95C3D0098E71A /* Olympus */,
 				24BF8FF620B8999F0098E71A /* TodayConnectKit.h */,
@@ -306,10 +311,7 @@
 		24BF902720B9506F0098E71A /* ConnectApi */ = {
 			isa = PBXGroup;
 			children = (
-				24BF901820B8A5E20098E71A /* AppConfigResponse.swift */,
 				24BF901220B89A200098E71A /* ConnectApi.swift */,
-				24BF901C20B8ACFD0098E71A /* LoginRequest.swift */,
-				24BF901E20B8B19C0098E71A /* VerifyDeviceRequest.swift */,
 			);
 			path = ConnectApi;
 			sourceTree = "<group>";
@@ -328,6 +330,27 @@
 				24BF901420B89B0D0098E71A /* Result.swift */,
 			);
 			path = Swift;
+			sourceTree = "<group>";
+		};
+		24BF902A20B95C3D0098E71A /* Olympus */ = {
+			isa = PBXGroup;
+			children = (
+				24BF901820B8A5E20098E71A /* AppConfigResponse.swift */,
+				24BF903020B95FC80098E71A /* OlympusApi.swift */,
+				24BF902B20B95C6E0098E71A /* OlympusApiRoutes.swift */,
+			);
+			path = Olympus;
+			sourceTree = "<group>";
+		};
+		24BF902D20B95D9B0098E71A /* Authorization */ = {
+			isa = PBXGroup;
+			children = (
+				24BF903220B966100098E71A /* AuthorizationApi.swift */,
+				24BF902E20B95DAE0098E71A /* AuthorizationApiRoutes.swift */,
+				24BF901C20B8ACFD0098E71A /* LoginRequest.swift */,
+				24BF901E20B8B19C0098E71A /* VerifySecurityCodeRequest.swift */,
+			);
+			path = Authorization;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -611,10 +634,13 @@
 				24BF901920B8A5E20098E71A /* AppConfigResponse.swift in Sources */,
 				24BF901520B89B0D0098E71A /* Result.swift in Sources */,
 				24BF902620B950590098E71A /* HttpMethods.swift in Sources */,
-				24BF901F20B8B19C0098E71A /* VerifyDeviceRequest.swift in Sources */,
+				24BF901F20B8B19C0098E71A /* VerifySecurityCodeRequest.swift in Sources */,
 				24BF901320B89A200098E71A /* ConnectApi.swift in Sources */,
 				24BF901D20B8ACFD0098E71A /* LoginRequest.swift in Sources */,
+				24BF902C20B95C6E0098E71A /* OlympusApiRoutes.swift in Sources */,
+				24BF903320B966100098E71A /* AuthorizationApi.swift in Sources */,
 				24BF902120B9501E0098E71A /* Api.swift in Sources */,
+				24BF902F20B95DAE0098E71A /* AuthorizationApiRoutes.swift in Sources */,
 				24BF902420B950400098E71A /* ApiRoutes.swift in Sources */,
 				24BF903120B95FC80098E71A /* OlympusApi.swift in Sources */,
 				24BF901B20B8A7920098E71A /* Result+Api.swift in Sources */,

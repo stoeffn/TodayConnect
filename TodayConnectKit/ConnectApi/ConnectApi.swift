@@ -89,7 +89,7 @@ public final class ConnectApi {
         }
 
         let url = appConfig.authServiceUrl.appendingPathComponent("auth/verify/trusteddevice/securitycode")
-        let verifyDeviceRequest = VerifyDeviceRequest(securityCode: VerifyDeviceRequest.SecurityCode(code: securityCode))
+        let verifyDeviceRequest = VerifySecurityCodeRequest(securityCode: VerifySecurityCodeRequest.SecurityCode(code: securityCode))
         var request = URLRequest(url: url)
         request.httpMethod = "POST"
         request.allHTTPHeaderFields = httpHeaderFields(for: appConfig)

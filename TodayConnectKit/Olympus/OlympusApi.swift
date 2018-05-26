@@ -22,6 +22,8 @@ final class OlympusApi {
 
     private let api: Api<OlympusApiRoutes>
 
+    // MARK: - Life Cycle
+
     init(api: Api<OlympusApiRoutes>) {
         self.api = api
     }
@@ -29,6 +31,8 @@ final class OlympusApi {
     convenience init(baseUrl: URL = defaultBaseUrl, session: URLSession = .shared) {
         self.init(api: Api<OlympusApiRoutes>(baseUrl: baseUrl, session: session))
     }
+
+    // MARK: - Retrieving App Information
 
     @discardableResult
     func appConfig(forHost host: String, completion: @escaping ResultHandler<AppConfigResponse>) -> URLSessionTask {
