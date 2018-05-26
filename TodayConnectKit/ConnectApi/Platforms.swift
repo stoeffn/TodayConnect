@@ -17,28 +17,6 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-final class OlympusApi {
-    private static let defaultBaseUrl = URL(string: "https://olympus.itunes.apple.com/v1/")!
-
-    private let api: Api<OlympusApiRoutes>
-
-    // MARK: - Life Cycle
-
-    init(api: Api<OlympusApiRoutes>) {
-        self.api = api
-    }
-
-    convenience init(baseUrl: URL = defaultBaseUrl, session: URLSession = .shared) {
-        let api = Api<OlympusApiRoutes>(baseUrl: baseUrl, session: session)
-        self.init(api: api)
-    }
-
-    // MARK: - Retrieving App Information
-
-    @discardableResult
-    func appConfig(forHost host: String, completion: @escaping ResultHandler<AppConfigResponse>) -> URLSessionTask {
-        return api.request(.appConfiguration(host: host)) { (result: ApiResult<AppConfigResponse>) in
-            completion(result.map { $0.value })
-        }
-    }
+enum Platforms: String {
+    case iOS, macOS, watchOS, tvOS
 }

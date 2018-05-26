@@ -17,7 +17,7 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-final class AuthorizationApi {
+public final class AuthorizationApi {
     private let api: Api<AuthorizationApiRoutes>
     private var sessionId: String?
     private var scnt: String?
@@ -28,15 +28,18 @@ final class AuthorizationApi {
         self.api = api
     }
 
-    convenience init(appConfig: AppConfigResponse) {
-        let session = URLSession(configuration: AuthorizationApi.sessionConfig(for: appConfig))
+    convenience init(appConfig: AppConfigResponse, cookieStorage: HTTPCookieStorage? = nil) {
+        let configuration = AuthorizationApi.sessionConfig(for: appConfig, cookieStorage: cookieStorage)
+        let session = URLSession(configuration: configuration)
         self.init(api: Api<AuthorizationApiRoutes>(baseUrl: appConfig.authServiceUrl, session: session))
     }
 
     // MARK: - Configuring
 
-    private static func sessionConfig(for appConfig: AppConfigResponse) -> URLSessionConfiguration {
+    private static func sessionConfig(for appConfig: AppConfigResponse,
+                                      cookieStorage: HTTPCookieStorage? = nil) -> URLSessionConfiguration {
         let configuration = URLSessionConfiguration.default
+        configuration.httpCookieStorage = cookieStorage
         configuration.httpAdditionalHeaders = [
             "Accept": "application/json, text/javascript",
             "Content-Type": "application/json",
@@ -49,7 +52,7 @@ final class AuthorizationApi {
     // MARK: - Logging In
 
     @discardableResult
-    func logIn(email: String, password: String, completion: @escaping ResultHandler<Void>) -> URLSessionTask {
+    public func logIn(email: String, password: String, completion: @escaping ResultHandler<Void>) -> URLSessionTask {
         return api.request(.logIn(accountName: email, password: password)) { result in
             self.sessionId = result.value?.response.allHeaderFields["X-Apple-ID-Session-Id"] as? String
             self.scnt = result.value?.response.allHeaderFields["scnt"] as? String
@@ -68,7 +71,7 @@ final class AuthorizationApi {
     }
 
     @discardableResult
-    func verifySecurityCode(code: String, completion: @escaping ResultHandler<Void>) -> URLSessionTask? {
+    public func verifySecurityCode(code: String, completion: @escaping ResultHandler<Void>) -> URLSessionTask? {
         guard let sessionId = sessionId, let scnt = scnt else {
             completion(.failure(Errors.notLoggedIn))
             return nil
@@ -87,7 +90,7 @@ final class AuthorizationApi {
     }
 
     @discardableResult
-    func trust(completion: @escaping ResultHandler<Void>) -> URLSessionTask? {
+    public func trust(completion: @escaping ResultHandler<Void>) -> URLSessionTask? {
         guard let sessionId = sessionId, let scnt = scnt else {
             completion(.failure(Errors.notLoggedIn))
             return nil
@@ -101,7 +104,7 @@ final class AuthorizationApi {
 
 // MARK: - Errors
 
-extension AuthorizationApi {
+public extension AuthorizationApi {
     enum Errors: Error {
         case invalidCredentials, notImplemented, requiresSecurityCode, notLoggedIn, invalidSecurityCode
     }

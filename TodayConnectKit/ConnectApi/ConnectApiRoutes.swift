@@ -17,28 +17,20 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-final class OlympusApi {
-    private static let defaultBaseUrl = URL(string: "https://olympus.itunes.apple.com/v1/")!
+enum ConnectApiRoutes: ApiRoutes {
+    case reviewSummary(appId: String, platform: Platforms, countryCode: String)
 
-    private let api: Api<OlympusApiRoutes>
-
-    // MARK: - Life Cycle
-
-    init(api: Api<OlympusApiRoutes>) {
-        self.api = api
+    var path: String {
+        switch self {
+        case let .reviewSummary(appId, platform, _):
+            return "apps/\(appId)/platforms/\(platform)/reviews/summary"
+        }
     }
 
-    convenience init(baseUrl: URL = defaultBaseUrl, session: URLSession = .shared) {
-        let api = Api<OlympusApiRoutes>(baseUrl: baseUrl, session: session)
-        self.init(api: api)
-    }
-
-    // MARK: - Retrieving App Information
-
-    @discardableResult
-    func appConfig(forHost host: String, completion: @escaping ResultHandler<AppConfigResponse>) -> URLSessionTask {
-        return api.request(.appConfiguration(host: host)) { (result: ApiResult<AppConfigResponse>) in
-            completion(result.map { $0.value })
+    var parameters: [URLQueryItem] {
+        switch self {
+        case let .reviewSummary(_, _, countryCode):
+            return [URLQueryItem(name: "storefront", value: countryCode)]
         }
     }
 }
