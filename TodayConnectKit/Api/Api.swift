@@ -58,7 +58,7 @@ class Api<Routes: ApiRoutes> {
     ///   - completion: Completion handler receiving a result with the received response and data or an error.
     /// - Returns: URL task in its resumed state or `nil` if building the request failed.
     @discardableResult
-    func request(_ route: Routes, completion: @escaping ResultHandler<(Data, HTTPURLResponse)>) -> URLSessionTask {
+    func request(_ route: Routes, completion: @escaping ApiResultHandler<Data>) -> URLSessionTask {
         let task = session.dataTask(with: route.request(for: baseUrl)) { data, response, error in
             let result = Result(data: data, response: response as? HTTPURLResponse, error: error)
             completion(result)
@@ -76,8 +76,7 @@ class Api<Routes: ApiRoutes> {
     /// - Precondition: `route`'s type must not be `nil`.
     /// - Remark: At the moment, this method supports JSON decoding only.
     @discardableResult
-    func request<Result: Decodable>(_ route: Routes,
-                                    completion: @escaping ResultHandler<(Result, HTTPURLResponse)>) -> URLSessionTask {
+    func request<Result: Decodable>(_ route: Routes, completion: @escaping ApiResultHandler<Result>) -> URLSessionTask {
         guard let type = route.responseType as? Result.Type else {
             fatalError("Trying to decode response from untyped API route '\(route)'.")
         }

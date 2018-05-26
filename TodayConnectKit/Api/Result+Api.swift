@@ -17,7 +17,11 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-extension Result where Value == (Data, HTTPURLResponse) {
+typealias ApiResult<Value> = Result<(value: Value, response: HTTPURLResponse)>
+
+typealias ApiResultHandler<Value> = (ApiResult<Value>) -> Void
+
+extension Result where Value == (value: Data, response: HTTPURLResponse) {
     /// Creates a new result based on the result of an HTTP request with its response, data, and error.
     init(data: Data?, response: HTTPURLResponse?, error: Error?) {
         if error == nil, let response = response, let data = data, 200 ... 299 ~= response.statusCode {
@@ -31,7 +35,7 @@ extension Result where Value == (Data, HTTPURLResponse) {
     /// `.failure`.
     ///
     /// - Parameter type: Expected object type.
-    func decoded<Value: Decodable>(_ type: Value.Type) -> Result<(Value, HTTPURLResponse)> {
-        return map { (try JSONDecoder().decode(type, from: $0.0), $0.1) }
+    func decoded<Value: Decodable>(_ type: Value.Type) -> ApiResult<Value> {
+        return map { (try JSONDecoder().decode(type, from: $0.value), $0.response) }
     }
 }
