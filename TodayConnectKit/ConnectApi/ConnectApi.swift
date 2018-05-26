@@ -49,11 +49,8 @@ public final class ConnectApi {
         request.httpMethod = "GET"
 
         let task = session.dataTask(with: request) { data, response, error in
-            let response = response as? HTTPURLResponse
-            let result = Result(data, error: error, statusCode: response?.statusCode)
-
-            print(String(data: data!, encoding: .utf8))
-            completion(result.decoded(AppConfigResponse.self))
+            let result = Result(data: data, response: response as? HTTPURLResponse, error: error)
+            completion(result.decoded(AppConfigResponse.self).map { $0.0 })
         }
         task.resume()
     }
@@ -78,13 +75,9 @@ public final class ConnectApi {
         request.httpBody = try? JSONEncoder().encode(loginRequest)
 
         let task = session.dataTask(with: request) { data, response, error in
-            let response = response as? HTTPURLResponse
-            let result = Result(data, error: error, statusCode: response?.statusCode)
-
-            self.sessionId = response?.allHeaderFields["X-Apple-ID-Session-Id"] as? String
-            self.scnt = response?.allHeaderFields["scnt"] as? String
-
-            print(String(data: data!, encoding: .utf8))
+            let result = Result(data: data, response: response as? HTTPURLResponse, error: error)
+            // self.sessionId = response?.allHeaderFields["X-Apple-ID-Session-Id"] as? String
+            // self.scnt = response?.allHeaderFields["scnt"] as? String
             completion(result.map { _ in })
         }
         task.resume()
@@ -103,10 +96,7 @@ public final class ConnectApi {
         request.httpBody = try? JSONEncoder().encode(verifyDeviceRequest)
 
         let task = session.dataTask(with: request) { data, response, error in
-            let response = response as? HTTPURLResponse
-            let result = Result(data, error: error, statusCode: response?.statusCode)
-
-            print(String(data: data!, encoding: .utf8))
+            let result = Result(data: data, response: response as? HTTPURLResponse, error: error)
             completion(result.map { _ in })
         }
         task.resume()
@@ -123,10 +113,7 @@ public final class ConnectApi {
         request.allHTTPHeaderFields = httpHeaderFields(for: appConfig)
 
         let task = session.dataTask(with: request) { data, response, error in
-            let response = response as? HTTPURLResponse
-            let result = Result(data, error: error, statusCode: response?.statusCode)
-
-            print(String(data: data!, encoding: .utf8))
+            let result = Result(data: data, response: response as? HTTPURLResponse, error: error)
             completion(result.map { _ in })
         }
         task.resume()
@@ -143,10 +130,7 @@ public final class ConnectApi {
         request.allHTTPHeaderFields = httpHeaderFields(for: appConfig)
 
         let task = session.dataTask(with: request) { data, response, error in
-            let response = response as? HTTPURLResponse
-            let result = Result(data, error: error, statusCode: response?.statusCode)
-
-            print(String(data: data!, encoding: .utf8))
+            let result = Result(data: data, response: response as? HTTPURLResponse, error: error)
             completion(result.map { _ in })
         }
         task.resume()
