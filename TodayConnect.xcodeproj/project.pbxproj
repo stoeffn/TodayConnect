@@ -42,6 +42,7 @@
 		24BF903D20B981F80098E71A /* ConnectResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF903C20B981F80098E71A /* ConnectResponse.swift */; };
 		24F15FCB20B9AEF0009E00D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24BF8FA120B888AB0098E71A /* Assets.xcassets */; };
 		24F15FCD20B9C717009E00D5 /* RatingBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F15FCC20B9C717009E00D5 /* RatingBarView.swift */; };
+		24F15FCF20B9CB3A009E00D5 /* AuthorizationCookieStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F15FCE20B9CB3A009E00D5 /* AuthorizationCookieStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -159,6 +160,7 @@
 		24BF903A20B981D10098E71A /* ReviewSummaryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSummaryResponse.swift; sourceTree = "<group>"; };
 		24BF903C20B981F80098E71A /* ConnectResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectResponse.swift; sourceTree = "<group>"; };
 		24F15FCC20B9C717009E00D5 /* RatingBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingBarView.swift; sourceTree = "<group>"; };
+		24F15FCE20B9CB3A009E00D5 /* AuthorizationCookieStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCookieStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -366,6 +368,7 @@
 			children = (
 				24BF903220B966100098E71A /* AuthorizationApi.swift */,
 				24BF902E20B95DAE0098E71A /* AuthorizationApiRoutes.swift */,
+				24F15FCE20B9CB3A009E00D5 /* AuthorizationCookieStorage.swift */,
 				24BF901C20B8ACFD0098E71A /* LoginRequest.swift */,
 				24BF901E20B8B19C0098E71A /* VerifySecurityCodeRequest.swift */,
 			);
@@ -672,6 +675,7 @@
 				24BF903320B966100098E71A /* AuthorizationApi.swift in Sources */,
 				24BF902120B9501E0098E71A /* Api.swift in Sources */,
 				24BF902F20B95DAE0098E71A /* AuthorizationApiRoutes.swift in Sources */,
+				24F15FCF20B9CB3A009E00D5 /* AuthorizationCookieStorage.swift in Sources */,
 				24BF902420B950400098E71A /* ApiRoutes.swift in Sources */,
 				24BF903120B95FC80098E71A /* OlympusApi.swift in Sources */,
 				24BF901B20B8A7920098E71A /* Result+Api.swift in Sources */,
