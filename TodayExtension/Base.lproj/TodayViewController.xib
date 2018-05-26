@@ -107,7 +107,7 @@
                                         <real value="3.4028234663852886e+38"/>
                                     </customSpacing>
                                 </stackView>
-                                <customView horizontalCompressionResistancePriority="250" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="H5b-6G-gUN">
+                                <customView horizontalCompressionResistancePriority="250" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="H5b-6G-gUN" customClass="RatingBarView" customModule="TodayExtension" customModuleProvider="target">
                                     <rect key="frame" x="53" y="5" width="245" height="2"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="2" id="LVZ-CM-okT"/>
@@ -116,7 +116,7 @@
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="BJ5-Vn-QqB">
                                     <rect key="frame" x="304" y="0.0" width="16" height="11"/>
                                     <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="42" id="a9l-ch-qCz">
-                                        <font key="font" metaFont="system" size="9"/>
+                                        <font key="font" metaFont="miniSystem"/>
                                         <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
@@ -181,7 +181,7 @@
                                         <real value="3.4028234663852886e+38"/>
                                     </customSpacing>
                                 </stackView>
-                                <customView horizontalCompressionResistancePriority="250" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="pPa-sN-Lma">
+                                <customView horizontalCompressionResistancePriority="250" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="pPa-sN-Lma" customClass="RatingBarView" customModule="TodayExtension" customModuleProvider="target">
                                     <rect key="frame" x="44" y="5" width="245" height="2"/>
                                 </customView>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="1Di-72-8JH">
@@ -243,7 +243,7 @@
                                         <real value="3.4028234663852886e+38"/>
                                     </customSpacing>
                                 </stackView>
-                                <customView horizontalCompressionResistancePriority="250" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="ies-dv-pg5">
+                                <customView horizontalCompressionResistancePriority="250" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="ies-dv-pg5" customClass="RatingBarView" customModule="TodayExtension" customModuleProvider="target">
                                     <rect key="frame" x="35" y="4" width="245" height="2"/>
                                 </customView>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="ZMx-NZ-o6k">
@@ -296,7 +296,7 @@
                                         <real value="3.4028234663852886e+38"/>
                                     </customSpacing>
                                 </stackView>
-                                <customView horizontalCompressionResistancePriority="250" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="lg1-tv-rUG">
+                                <customView horizontalCompressionResistancePriority="250" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="lg1-tv-rUG" customClass="RatingBarView" customModule="TodayExtension" customModuleProvider="target">
                                     <rect key="frame" x="26" y="4" width="245" height="2"/>
                                 </customView>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="AY3-yT-hh8">
@@ -340,7 +340,7 @@
                                         <real value="3.4028234663852886e+38"/>
                                     </customSpacing>
                                 </stackView>
-                                <customView horizontalCompressionResistancePriority="250" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="OGr-SW-MEF">
+                                <customView horizontalCompressionResistancePriority="250" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="OGr-SW-MEF" customClass="RatingBarView" customModule="TodayExtension" customModuleProvider="target">
                                     <rect key="frame" x="17" y="4" width="245" height="2"/>
                                 </customView>
                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="eDF-Wy-7zW">

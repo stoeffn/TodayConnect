@@ -37,47 +37,35 @@ final class TodayViewController: NSViewController, NCWidgetProviding {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        initUI()
+
+        fiveStarRatingBar.percentage = 0.8
+        fourStarRatingBar.percentage = 0.1
+        threeStarRatingBar.percentage = 0.05
+        twoStarRatingBar.percentage = 0.05
+        oneStarRatingBar.percentage = 0
     }
 
     // MARK: - User Interface
 
     @IBOutlet var ratingLabel: NSTextField!
 
-    @IBOutlet var fiveStarRatingBar: NSView!
+    @IBOutlet var fiveStarRatingBar: RatingBarView!
 
     @IBOutlet var fiveStarRatingLabel: NSTextField!
 
-    @IBOutlet var fourStarRatingBar: NSView!
+    @IBOutlet var fourStarRatingBar: RatingBarView!
 
     @IBOutlet var fourStarRatingLabel: NSTextField!
 
-    @IBOutlet var threeStarRatingBar: NSView!
+    @IBOutlet var threeStarRatingBar: RatingBarView!
 
     @IBOutlet var threeStarRatingLabel: NSTextField!
 
-    @IBOutlet var twoStarRatingBar: NSView!
+    @IBOutlet var twoStarRatingBar: RatingBarView!
 
     @IBOutlet var twoStarRatingLabel: NSTextField!
 
-    @IBOutlet var oneStarRatingBar: NSView!
+    @IBOutlet var oneStarRatingBar: RatingBarView!
 
     @IBOutlet var oneStarRatingLabel: NSTextField!
-
-    private var ratingBars: [NSView] {
-        return [
-            oneStarRatingBar,
-            twoStarRatingBar,
-            threeStarRatingBar,
-            fourStarRatingBar,
-            fiveStarRatingBar,
-        ]
-    }
-
-    private func initUI() {
-        for view in ratingBars {
-            view.wantsLayer = true
-            view.layer?.backgroundColor = NSColor.gray.cgColor
-        }
-    }
 }
