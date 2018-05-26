@@ -18,5 +18,39 @@
 //
 
 import Cocoa
+import TodayConnectKit
 
-final class ViewController: NSViewController {}
+final class ViewController: NSViewController {
+    private let api = ConnectApi()
+
+    @IBOutlet var emailTextField: NSTextField!
+
+    @IBOutlet var passwordTextfield: NSSecureTextField!
+
+    @IBOutlet var securityCodeTextField: NSSecureTextField!
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+        api.refreshConfiguration { print($0) }
+    }
+
+    @IBAction
+    func logIn(_ sender: Any) {
+        api.login(email: emailTextField.stringValue, password: passwordTextfield.stringValue) { print($0) }
+    }
+
+    @IBAction
+    func verifyDevice(_ sender: Any) {
+        api.verifyDevice(securityCode: securityCodeTextField.stringValue) { result in
+            print(result)
+
+            self.api.trust { result in
+                print(result)
+                self.api.test(completion: { result in
+                    print(result)
+                })
+            }
+        }
+    }
+}
