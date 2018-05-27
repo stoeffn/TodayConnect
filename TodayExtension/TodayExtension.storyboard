@@ -1,0 +1,468 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.Storyboard.XIB" version="3.0" toolsVersion="14109" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" initialViewController="6Ym-BR-SBS">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="14109"/>
+        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+        <capability name="stacking Non-gravity area distributions on NSStackView" minToolsVersion="7.0" minSystemVersion="10.11"/>
+        <capability name="system font weights other than Regular or Bold" minToolsVersion="7.0"/>
+    </dependencies>
+    <scenes>
+        <!--Today Content View Controller-->
+        <scene sceneID="ONE-IS-j70">
+            <objects>
+                <viewController id="6Ym-BR-SBS" customClass="TodayContentViewController" customModule="TodayExtension" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="36E-DW-oIL">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <containerView translatesAutoresizingMaskIntoConstraints="NO" id="l4p-Rx-g34">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                <connections>
+                                    <segue destination="zjL-XU-gKZ" kind="embed" identifier="reviewSummary" id="zll-8D-H46"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="l4p-Rx-g34" firstAttribute="top" secondItem="36E-DW-oIL" secondAttribute="top" id="I8f-WR-2s5"/>
+                            <constraint firstItem="l4p-Rx-g34" firstAttribute="leading" secondItem="36E-DW-oIL" secondAttribute="leading" id="Xt4-af-lxJ"/>
+                            <constraint firstAttribute="trailing" secondItem="l4p-Rx-g34" secondAttribute="trailing" id="h8R-7O-STb"/>
+                            <constraint firstAttribute="bottom" secondItem="l4p-Rx-g34" secondAttribute="bottom" id="zIX-pp-FkO"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <customObject id="35i-ct-cDS" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="39" y="-301.5"/>
+        </scene>
+        <!--Review Summary View Controller-->
+        <scene sceneID="BEY-cw-3X1">
+            <objects>
+                <viewController id="zjL-XU-gKZ" customClass="ReviewSummaryViewController" customModule="TodayExtension" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="YjX-e2-Jd6">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <customView simulatedAppContext="notificationCenter" translatesAutoresizingMaskIntoConstraints="NO" id="mYV-h8-KWe">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="64"/>
+                                <subviews>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" alphaValue="0.90000000000000002" translatesAutoresizingMaskIntoConstraints="NO" id="jU1-UA-u2v">
+                                        <rect key="frame" x="6" y="17" width="73" height="51"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="5.0" id="f8U-vU-uMm">
+                                            <font key="font" metaFont="systemSemibold" size="42"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="xwp-0f-zEq">
+                                        <rect key="frame" x="6" y="2" width="73" height="19"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="out of 5" id="7FK-02-9j5">
+                                            <font key="font" metaFont="systemSemibold" size="16"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                    <stackView distribution="fill" orientation="vertical" alignment="trailing" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fRq-nQ-iH7">
+                                        <rect key="frame" x="81" y="5" width="231" height="54"/>
+                                        <subviews>
+                                            <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MVw-yL-UzN">
+                                                <rect key="frame" x="0.0" y="43" width="231" height="11"/>
+                                                <subviews>
+                                                    <stackView distribution="fillEqually" orientation="horizontal" alignment="top" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FXj-Lh-Gbd">
+                                                        <rect key="frame" x="0.0" y="1" width="45" height="9"/>
+                                                        <subviews>
+                                                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="KoN-as-dhW">
+                                                                <rect key="frame" x="0.0" y="0.0" width="9" height="9"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="KoN-as-dhW" secondAttribute="height" multiplier="1:1" id="UWZ-5n-Fbb"/>
+                                                                    <constraint firstAttribute="width" constant="9" id="tw5-dz-KQz"/>
+                                                                </constraints>
+                                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="StarGlyph" id="5xC-Wo-la7"/>
+                                                            </imageView>
+                                                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="28Y-wA-x3j">
+                                                                <rect key="frame" x="9" y="0.0" width="9" height="9"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="28Y-wA-x3j" secondAttribute="height" multiplier="1:1" id="SQb-2n-5TN"/>
+                                                                </constraints>
+                                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="StarGlyph" id="FwQ-4y-ok6"/>
+                                                            </imageView>
+                                                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="HYh-IY-tPn">
+                                                                <rect key="frame" x="18" y="0.0" width="9" height="9"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="HYh-IY-tPn" secondAttribute="height" multiplier="1:1" id="RMT-z2-VY9"/>
+                                                                </constraints>
+                                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="StarGlyph" id="taE-3b-RKV"/>
+                                                            </imageView>
+                                                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="eWp-kV-1Zm">
+                                                                <rect key="frame" x="27" y="0.0" width="9" height="9"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="eWp-kV-1Zm" secondAttribute="height" multiplier="1:1" id="pgu-DT-A0k"/>
+                                                                </constraints>
+                                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="StarGlyph" id="QlO-qQ-HsS"/>
+                                                            </imageView>
+                                                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="VIm-7g-40v">
+                                                                <rect key="frame" x="36" y="0.0" width="9" height="9"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="VIm-7g-40v" secondAttribute="height" multiplier="1:1" id="GSC-V5-qAq"/>
+                                                                </constraints>
+                                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="StarGlyph" id="kFd-aw-bt2"/>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <visibilityPriorities>
+                                                            <integer value="1000"/>
+                                                            <integer value="1000"/>
+                                                            <integer value="1000"/>
+                                                            <integer value="1000"/>
+                                                            <integer value="1000"/>
+                                                        </visibilityPriorities>
+                                                        <customSpacing>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                        </customSpacing>
+                                                    </stackView>
+                                                    <customView horizontalCompressionResistancePriority="250" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="RUp-cC-GXY" customClass="RatingBarView" customModule="TodayExtension" customModuleProvider="target">
+                                                        <rect key="frame" x="53" y="5" width="158" height="2"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="2" id="i9T-IA-uqU"/>
+                                                        </constraints>
+                                                    </customView>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="zss-9N-UHq">
+                                                        <rect key="frame" x="217" y="0.0" width="16" height="11"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="42" id="uOc-qS-MMj">
+                                                            <font key="font" metaFont="miniSystem"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                </subviews>
+                                                <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                </visibilityPriorities>
+                                                <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                </customSpacing>
+                                            </stackView>
+                                            <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7gs-mB-v4z">
+                                                <rect key="frame" x="9" y="32" width="222" height="11"/>
+                                                <subviews>
+                                                    <stackView distribution="fillEqually" orientation="horizontal" alignment="top" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ar-Vf-PhV">
+                                                        <rect key="frame" x="0.0" y="1" width="36" height="9"/>
+                                                        <subviews>
+                                                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="kWw-R9-y2p">
+                                                                <rect key="frame" x="0.0" y="0.0" width="9" height="9"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="kWw-R9-y2p" secondAttribute="height" multiplier="1:1" id="cA9-Eq-Yvn"/>
+                                                                </constraints>
+                                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="StarGlyph" id="pcH-PK-crR"/>
+                                                            </imageView>
+                                                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="nQ8-dp-WPz">
+                                                                <rect key="frame" x="9" y="0.0" width="9" height="9"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="nQ8-dp-WPz" secondAttribute="height" multiplier="1:1" id="goe-CM-ClI"/>
+                                                                </constraints>
+                                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="StarGlyph" id="yta-6t-cBD"/>
+                                                            </imageView>
+                                                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="upO-ly-U7q">
+                                                                <rect key="frame" x="18" y="0.0" width="9" height="9"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="upO-ly-U7q" secondAttribute="height" multiplier="1:1" id="t9v-JV-V3I"/>
+                                                                </constraints>
+                                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="StarGlyph" id="acP-5c-Nnb"/>
+                                                            </imageView>
+                                                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="bTu-Me-A4v">
+                                                                <rect key="frame" x="27" y="0.0" width="9" height="9"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="bTu-Me-A4v" secondAttribute="height" multiplier="1:1" id="hqA-ld-feH"/>
+                                                                </constraints>
+                                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="StarGlyph" id="pNN-ZU-jQM"/>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <visibilityPriorities>
+                                                            <integer value="1000"/>
+                                                            <integer value="1000"/>
+                                                            <integer value="1000"/>
+                                                            <integer value="1000"/>
+                                                        </visibilityPriorities>
+                                                        <customSpacing>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                        </customSpacing>
+                                                    </stackView>
+                                                    <customView horizontalCompressionResistancePriority="250" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="QCJ-gA-OC3" customClass="RatingBarView" customModule="TodayExtension" customModuleProvider="target">
+                                                        <rect key="frame" x="44" y="5" width="158" height="2"/>
+                                                    </customView>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="raS-RG-PMc">
+                                                        <rect key="frame" x="208" y="0.0" width="16" height="11"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="42" id="HJ8-Y4-Opu">
+                                                            <font key="font" metaFont="miniSystem"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                </subviews>
+                                                <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                </visibilityPriorities>
+                                                <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                </customSpacing>
+                                            </stackView>
+                                            <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2dF-AF-aEc">
+                                                <rect key="frame" x="18" y="22" width="213" height="10"/>
+                                                <subviews>
+                                                    <stackView distribution="fillEqually" orientation="horizontal" alignment="top" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bHK-pC-DqK">
+                                                        <rect key="frame" x="0.0" y="1" width="27" height="9"/>
+                                                        <subviews>
+                                                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="une-Sa-7pa">
+                                                                <rect key="frame" x="0.0" y="0.0" width="9" height="9"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="une-Sa-7pa" secondAttribute="height" multiplier="1:1" id="001-gb-nBf"/>
+                                                                </constraints>
+                                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="StarGlyph" id="njB-mv-K59"/>
+                                                            </imageView>
+                                                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="k5k-xm-0qw">
+                                                                <rect key="frame" x="9" y="0.0" width="9" height="9"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="k5k-xm-0qw" secondAttribute="height" multiplier="1:1" id="5qB-ca-xIH"/>
+                                                                </constraints>
+                                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="StarGlyph" id="Kms-UP-wCk"/>
+                                                            </imageView>
+                                                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="Phd-xr-dMA">
+                                                                <rect key="frame" x="18" y="0.0" width="9" height="9"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="Phd-xr-dMA" secondAttribute="height" multiplier="1:1" id="Igv-wg-3dm"/>
+                                                                </constraints>
+                                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="StarGlyph" id="PEU-Nn-xJw"/>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <visibilityPriorities>
+                                                            <integer value="1000"/>
+                                                            <integer value="1000"/>
+                                                            <integer value="1000"/>
+                                                        </visibilityPriorities>
+                                                        <customSpacing>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                        </customSpacing>
+                                                    </stackView>
+                                                    <customView horizontalCompressionResistancePriority="250" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="eYi-Jq-RSn" customClass="RatingBarView" customModule="TodayExtension" customModuleProvider="target">
+                                                        <rect key="frame" x="35" y="4" width="158" height="2"/>
+                                                    </customView>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="dxq-Bd-NWW">
+                                                        <rect key="frame" x="199" y="0.0" width="16" height="10"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="42" id="1Wc-5v-6Dr">
+                                                            <font key="font" metaFont="miniSystem"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                </subviews>
+                                                <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                </visibilityPriorities>
+                                                <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                </customSpacing>
+                                            </stackView>
+                                            <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="0sX-FC-EmW">
+                                                <rect key="frame" x="27" y="11" width="204" height="11"/>
+                                                <subviews>
+                                                    <stackView distribution="fillEqually" orientation="horizontal" alignment="top" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="PeF-kb-ywd">
+                                                        <rect key="frame" x="0.0" y="1" width="18" height="9"/>
+                                                        <subviews>
+                                                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="JF3-2a-eFt">
+                                                                <rect key="frame" x="0.0" y="0.0" width="9" height="9"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="JF3-2a-eFt" secondAttribute="height" multiplier="1:1" id="I08-cl-HWN"/>
+                                                                </constraints>
+                                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="StarGlyph" id="mYJ-2P-ICg"/>
+                                                            </imageView>
+                                                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="S20-w5-qAs">
+                                                                <rect key="frame" x="9" y="0.0" width="9" height="9"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="S20-w5-qAs" secondAttribute="height" multiplier="1:1" id="7Hj-O7-hER"/>
+                                                                </constraints>
+                                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="StarGlyph" id="oMn-fc-EWG"/>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <visibilityPriorities>
+                                                            <integer value="1000"/>
+                                                            <integer value="1000"/>
+                                                        </visibilityPriorities>
+                                                        <customSpacing>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                        </customSpacing>
+                                                    </stackView>
+                                                    <customView horizontalCompressionResistancePriority="250" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="Zc6-u5-f5f" customClass="RatingBarView" customModule="TodayExtension" customModuleProvider="target">
+                                                        <rect key="frame" x="26" y="4" width="158" height="2"/>
+                                                    </customView>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="Q4j-VD-X6b">
+                                                        <rect key="frame" x="190" y="0.0" width="16" height="11"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="42" id="CJQ-2Y-hKX">
+                                                            <font key="font" metaFont="miniSystem"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                </subviews>
+                                                <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                </visibilityPriorities>
+                                                <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                </customSpacing>
+                                            </stackView>
+                                            <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EeU-GZ-7yB">
+                                                <rect key="frame" x="36" y="0.0" width="195" height="11"/>
+                                                <subviews>
+                                                    <stackView distribution="fillEqually" orientation="horizontal" alignment="top" spacing="0.0" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" ambiguous="YES" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="FGf-nc-2AB">
+                                                        <rect key="frame" x="0.0" y="1" width="9" height="9"/>
+                                                        <subviews>
+                                                            <imageView horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="250" verticalCompressionResistancePriority="250" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ni8-sI-Ftb">
+                                                                <rect key="frame" x="0.0" y="0.0" width="9" height="9"/>
+                                                                <constraints>
+                                                                    <constraint firstAttribute="width" secondItem="Ni8-sI-Ftb" secondAttribute="height" multiplier="1:1" id="97r-S5-Tb1"/>
+                                                                </constraints>
+                                                                <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" image="StarGlyph" id="7yp-nK-gw2"/>
+                                                            </imageView>
+                                                        </subviews>
+                                                        <visibilityPriorities>
+                                                            <integer value="1000"/>
+                                                        </visibilityPriorities>
+                                                        <customSpacing>
+                                                            <real value="3.4028234663852886e+38"/>
+                                                        </customSpacing>
+                                                    </stackView>
+                                                    <customView horizontalCompressionResistancePriority="250" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="NF6-3Q-ZgB" customClass="RatingBarView" customModule="TodayExtension" customModuleProvider="target">
+                                                        <rect key="frame" x="17" y="4" width="158" height="2"/>
+                                                    </customView>
+                                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="qw7-Qt-xWH">
+                                                        <rect key="frame" x="181" y="0.0" width="16" height="11"/>
+                                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="42" id="jFt-XM-XOv">
+                                                            <font key="font" metaFont="miniSystem"/>
+                                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                        </textFieldCell>
+                                                    </textField>
+                                                </subviews>
+                                                <visibilityPriorities>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                    <integer value="1000"/>
+                                                </visibilityPriorities>
+                                                <customSpacing>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                    <real value="3.4028234663852886e+38"/>
+                                                </customSpacing>
+                                            </stackView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="EeU-GZ-7yB" firstAttribute="height" secondItem="0sX-FC-EmW" secondAttribute="height" id="0G5-tD-0j8"/>
+                                            <constraint firstItem="QCJ-gA-OC3" firstAttribute="height" secondItem="eYi-Jq-RSn" secondAttribute="height" id="1PE-AE-Lej"/>
+                                            <constraint firstItem="MVw-yL-UzN" firstAttribute="leading" secondItem="fRq-nQ-iH7" secondAttribute="leading" id="9Bf-5e-s8J"/>
+                                            <constraint firstItem="RUp-cC-GXY" firstAttribute="height" secondItem="QCJ-gA-OC3" secondAttribute="height" id="D3c-mX-T8K"/>
+                                            <constraint firstItem="bTu-Me-A4v" firstAttribute="width" secondItem="Phd-xr-dMA" secondAttribute="width" id="DUG-E4-PSd"/>
+                                            <constraint firstItem="bTu-Me-A4v" firstAttribute="width" secondItem="VIm-7g-40v" secondAttribute="width" id="DdQ-IK-7oc"/>
+                                            <constraint firstAttribute="trailing" secondItem="MVw-yL-UzN" secondAttribute="trailing" id="E1G-ba-AJo"/>
+                                            <constraint firstItem="eYi-Jq-RSn" firstAttribute="height" secondItem="Zc6-u5-f5f" secondAttribute="height" id="EqG-VI-n2i"/>
+                                            <constraint firstItem="QCJ-gA-OC3" firstAttribute="width" secondItem="eYi-Jq-RSn" secondAttribute="width" id="Hoa-9i-28v"/>
+                                            <constraint firstItem="MVw-yL-UzN" firstAttribute="height" secondItem="7gs-mB-v4z" secondAttribute="height" id="MrU-Xz-SmI"/>
+                                            <constraint firstItem="RUp-cC-GXY" firstAttribute="width" secondItem="QCJ-gA-OC3" secondAttribute="width" id="Stz-OO-aBe"/>
+                                            <constraint firstItem="Zc6-u5-f5f" firstAttribute="width" secondItem="NF6-3Q-ZgB" secondAttribute="width" id="XHp-JY-eEZ"/>
+                                            <constraint firstItem="raS-RG-PMc" firstAttribute="width" secondItem="dxq-Bd-NWW" secondAttribute="width" id="ZDH-UK-Hnz"/>
+                                            <constraint firstItem="7gs-mB-v4z" firstAttribute="height" secondItem="2dF-AF-aEc" secondAttribute="height" id="bPt-xV-6FK"/>
+                                            <constraint firstItem="0sX-FC-EmW" firstAttribute="height" secondItem="2dF-AF-aEc" secondAttribute="height" id="bxB-sY-iRo"/>
+                                            <constraint firstItem="zss-9N-UHq" firstAttribute="width" secondItem="raS-RG-PMc" secondAttribute="width" id="cXR-aw-ygi"/>
+                                            <constraint firstItem="Ni8-sI-Ftb" firstAttribute="width" secondItem="S20-w5-qAs" secondAttribute="width" id="drS-lL-lCp"/>
+                                            <constraint firstAttribute="height" constant="54" id="fCb-zY-a5W"/>
+                                            <constraint firstItem="Q4j-VD-X6b" firstAttribute="width" secondItem="dxq-Bd-NWW" secondAttribute="width" id="g59-nE-7zf"/>
+                                            <constraint firstItem="MVw-yL-UzN" firstAttribute="top" secondItem="fRq-nQ-iH7" secondAttribute="top" id="h6s-Zp-1DV"/>
+                                            <constraint firstItem="qw7-Qt-xWH" firstAttribute="width" secondItem="Q4j-VD-X6b" secondAttribute="width" id="sYS-V5-atn"/>
+                                            <constraint firstItem="S20-w5-qAs" firstAttribute="width" secondItem="Phd-xr-dMA" secondAttribute="width" id="tRo-4H-l5Q"/>
+                                            <constraint firstItem="Zc6-u5-f5f" firstAttribute="height" secondItem="NF6-3Q-ZgB" secondAttribute="height" id="uck-hn-EB3"/>
+                                            <constraint firstItem="eYi-Jq-RSn" firstAttribute="width" secondItem="Zc6-u5-f5f" secondAttribute="width" id="zc3-Hm-HX3"/>
+                                        </constraints>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="fRq-nQ-iH7" firstAttribute="leading" secondItem="jU1-UA-u2v" secondAttribute="trailing" constant="4" id="B4b-YP-yNc"/>
+                                    <constraint firstItem="fRq-nQ-iH7" firstAttribute="top" secondItem="mYV-h8-KWe" secondAttribute="top" constant="5" id="M6Q-rN-UOa"/>
+                                    <constraint firstAttribute="bottom" secondItem="xwp-0f-zEq" secondAttribute="bottom" constant="2" id="Ms9-zf-8qZ"/>
+                                    <constraint firstItem="xwp-0f-zEq" firstAttribute="trailing" secondItem="jU1-UA-u2v" secondAttribute="trailing" id="QTm-lb-Pc0"/>
+                                    <constraint firstItem="xwp-0f-zEq" firstAttribute="top" secondItem="jU1-UA-u2v" secondAttribute="bottom" constant="-4" id="aM0-9c-gkQ"/>
+                                    <constraint firstItem="jU1-UA-u2v" firstAttribute="top" secondItem="mYV-h8-KWe" secondAttribute="top" constant="-4" id="eQt-TC-h0F"/>
+                                    <constraint firstItem="jU1-UA-u2v" firstAttribute="leading" secondItem="mYV-h8-KWe" secondAttribute="leading" constant="8" id="gcw-ZF-ygW"/>
+                                    <constraint firstAttribute="trailing" secondItem="fRq-nQ-iH7" secondAttribute="trailing" constant="8" id="poh-iL-dZt"/>
+                                    <constraint firstItem="xwp-0f-zEq" firstAttribute="leading" secondItem="jU1-UA-u2v" secondAttribute="leading" id="qY4-Pc-a2o"/>
+                                </constraints>
+                            </customView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstItem="mYV-h8-KWe" firstAttribute="top" secondItem="YjX-e2-Jd6" secondAttribute="top" id="Pfx-Xh-vJm"/>
+                            <constraint firstAttribute="trailing" secondItem="mYV-h8-KWe" secondAttribute="trailing" id="nQa-mP-HZB"/>
+                            <constraint firstAttribute="bottom" secondItem="mYV-h8-KWe" secondAttribute="bottom" id="sDl-Y7-ZLh"/>
+                            <constraint firstItem="mYV-h8-KWe" firstAttribute="leading" secondItem="YjX-e2-Jd6" secondAttribute="leading" id="vSu-Uh-Kx2"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="fiveStarRatingBar" destination="RUp-cC-GXY" id="wli-jy-Scr"/>
+                        <outlet property="fiveStarRatingLabel" destination="zss-9N-UHq" id="tcG-Ik-Fnj"/>
+                        <outlet property="fourStarRatingBar" destination="QCJ-gA-OC3" id="AJB-RJ-3qA"/>
+                        <outlet property="fourStarRatingLabel" destination="raS-RG-PMc" id="ux5-Hi-2XT"/>
+                        <outlet property="oneStarRatingBar" destination="NF6-3Q-ZgB" id="zjB-jI-Qyl"/>
+                        <outlet property="oneStarRatingLabel" destination="qw7-Qt-xWH" id="eCx-JZ-97e"/>
+                        <outlet property="ratingLabel" destination="jU1-UA-u2v" id="kSi-LK-00N"/>
+                        <outlet property="threeStarRatingBar" destination="eYi-Jq-RSn" id="sQb-Pe-Hot"/>
+                        <outlet property="threeStarRatingLabel" destination="dxq-Bd-NWW" id="m9u-B6-sQB"/>
+                        <outlet property="twoStarRatingBar" destination="Zc6-u5-f5f" id="Xwa-ms-eXA"/>
+                        <outlet property="twoStarRatingLabel" destination="Q4j-VD-X6b" id="dUN-Yb-rop"/>
+                    </connections>
+                </viewController>
+                <customObject id="Cre-pM-8Bn" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="483" y="-302"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="StarGlyph" width="16" height="16"/>
+    </resources>
+</document>

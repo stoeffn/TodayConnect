@@ -26,12 +26,9 @@ final class TodayViewController: NSViewController, NCWidgetProviding {
 
     // MARK: - Life Cycle
 
-    override var nibName: NSNib.Name? {
-        return NSNib.Name("TodayViewController")
-    }
-
     override func viewDidLoad() {
         super.viewDidLoad()
+        initUI()
         updateUI()
     }
 
@@ -51,68 +48,38 @@ final class TodayViewController: NSViewController, NCWidgetProviding {
 
     // MARK: - User Interface
 
-    @IBOutlet var ratingLabel: NSTextField!
+    // MARK: Properties
 
-    @IBOutlet var fiveStarRatingBar: RatingBarView!
-
-    @IBOutlet var fiveStarRatingLabel: NSTextField!
-
-    @IBOutlet var fourStarRatingBar: RatingBarView!
-
-    @IBOutlet var fourStarRatingLabel: NSTextField!
-
-    @IBOutlet var threeStarRatingBar: RatingBarView!
-
-    @IBOutlet var threeStarRatingLabel: NSTextField!
-
-    @IBOutlet var twoStarRatingBar: RatingBarView!
-
-    @IBOutlet var twoStarRatingLabel: NSTextField!
-
-    @IBOutlet var oneStarRatingBar: RatingBarView!
-
-    @IBOutlet var oneStarRatingLabel: NSTextField!
-
-    private var ratingLabels: [NSTextField] {
-        return [fiveStarRatingLabel, fourStarRatingLabel, threeStarRatingLabel, twoStarRatingLabel, oneStarRatingLabel]
+    override var nibName: NSNib.Name? {
+        return NSNib.Name("TodayViewController")
     }
-
-    private var ratingBars: [RatingBarView] {
-        return [fiveStarRatingBar, fourStarRatingBar, threeStarRatingBar, twoStarRatingBar, oneStarRatingBar]
-    }
-
-    private lazy var ratingNumberFormatter: NumberFormatter = {
-        let formatter = NumberFormatter()
-        formatter.numberStyle = .decimal
-        formatter.minimumFractionDigits = 1
-        formatter.maximumFractionDigits = 1
-        return formatter
-    }()
 
     var reviewSummary: ReviewSummaryResponse? {
         didSet { updateUI() }
     }
 
+    // MARK: Child Controllers
+
+    private lazy var contentViewController: TodayContentViewController = {
+        let storyboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "TodayExtension"), bundle: nil)
+        guard let viewController = storyboard.instantiateInitialController() as? TodayContentViewController else { fatalError() }
+        return viewController
+    }()
+
+    // MARK: UI Cycle
+
+    private func initUI() {
+        view.addSubview(contentViewController.view)
+        addChildViewController(contentViewController)
+
+        contentViewController.view.translatesAutoresizingMaskIntoConstraints = false
+        contentViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
+        contentViewController.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
+        contentViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
+        contentViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+    }
+
     private func updateUI() {
-        guard let reviewSummary = reviewSummary else {
-            ratingLabel.stringValue = "—"
-            ratingLabels.forEach { $0.stringValue = "—" }
-            ratingBars.forEach { $0.percentage = 0 }
-            return
-        }
-
-        ratingLabel.stringValue = ratingNumberFormatter.string(from: NSNumber(value: reviewSummary.averageRating)) ?? "—"
-
-        fiveStarRatingLabel.integerValue = reviewSummary.ratingFiveCount
-        fourStarRatingLabel.integerValue = reviewSummary.ratingFourCount
-        threeStarRatingLabel.integerValue = reviewSummary.ratingThreeCount
-        twoStarRatingLabel.integerValue = reviewSummary.ratingTwoCount
-        oneStarRatingLabel.integerValue = reviewSummary.ratingOneCount
-
-        fiveStarRatingBar.percentage = Double(reviewSummary.ratingFiveCount) / Double(reviewSummary.ratingCount)
-        fourStarRatingBar.percentage = Double(reviewSummary.ratingFourCount) / Double(reviewSummary.ratingCount)
-        threeStarRatingBar.percentage = Double(reviewSummary.ratingThreeCount) / Double(reviewSummary.ratingCount)
-        twoStarRatingBar.percentage = Double(reviewSummary.ratingTwoCount) / Double(reviewSummary.ratingCount)
-        oneStarRatingBar.percentage = Double(reviewSummary.ratingOneCount) / Double(reviewSummary.ratingCount)
+        contentViewController.reviewSummary = reviewSummary
     }
 }

@@ -18,56 +18,41 @@
 //
 
 import Cocoa
+import TodayConnectKit
 
-@IBDesignable
-final class RatingBarView: NSView {
-
-    // MARK: - Life Cycle
-
-    override init(frame frameRect: NSRect) {
-        super.init(frame: frameRect)
-        initUI()
-    }
-
-    required init?(coder decoder: NSCoder) {
-        super.init(coder: decoder)
-        initUI()
-    }
-
+final class TodayContentViewController: NSViewController {
     // MARK: - User Interface
 
     // MARK: Properties
 
-    override var frame: NSRect {
+    var reviewSummary: ReviewSummaryResponse? {
         didSet { updateUI() }
     }
 
-    @IBInspectable
-    var percentage: Double = 0 {
-        didSet { updateUI() }
-    }
+    // MARK: Child Controllers
 
-    // MARK: Layers
-
-    private var barLayer: CALayer = {
-        let layer = CALayer()
-        layer.backgroundColor = NSColor.black.cgColor
-        return layer
-    }()
+    private var reviewSummaryViewController: ReviewSummaryViewController?
 
     // MARK: UI Cycle
 
-    private func initUI() {
-        wantsLayer = true
-
-        layer?.backgroundColor = NSColor.gray.cgColor
-        layer?.addSublayer(barLayer)
-
-        updateUI()
+    private func updateUI() {
+        reviewSummaryViewController?.reviewSummary = reviewSummary
     }
 
-    private func updateUI() {
-        let barWidth = CGFloat(max(min(percentage, 1), 0)) * bounds.width
-        barLayer.frame = CGRect(x: 0, y: 0, width: barWidth, height: bounds.height)
+    // MARK: - Navigation
+
+    enum Segues: String {
+        case reviewSummary
+    }
+
+    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+        guard let identifier = segue.identifier?.rawValue else { return }
+
+        switch Segues(rawValue: identifier) {
+        case .reviewSummary?:
+            reviewSummaryViewController = segue.destinationController as? ReviewSummaryViewController
+        case nil:
+            break
+        }
     }
 }

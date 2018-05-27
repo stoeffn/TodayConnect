@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		24677D3020BAAD7A00F4D530 /* HTTPCookie+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24677D2F20BAAD7A00F4D530 /* HTTPCookie+Utils.swift */; };
+		24677D3220BAB66900F4D530 /* ReviewSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24677D3120BAB66900F4D530 /* ReviewSummaryViewController.swift */; };
+		24677D3720BAB9F000F4D530 /* TodayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24677D3520BAB9F000F4D530 /* TodayViewController.xib */; };
+		24677D3920BABA5000F4D530 /* TodayExtension.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 24677D3820BABA5000F4D530 /* TodayExtension.storyboard */; };
+		24677D3B20BABCAB00F4D530 /* TodayContentViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24677D3A20BABCAB00F4D530 /* TodayContentViewController.swift */; };
 		24A11E7720B9F0D900C157EB /* TodayConnectKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24BF8FF420B8999F0098E71A /* TodayConnectKit.framework */; };
 		24BF8F9E20B888AA0098E71A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF8F9D20B888AA0098E71A /* AppDelegate.swift */; };
 		24BF8FA020B888AA0098E71A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF8F9F20B888AA0098E71A /* ViewController.swift */; };
@@ -16,7 +20,7 @@
 		24BF8FCC20B88AAC0098E71A /* LICENSE.md in Resources */ = {isa = PBXBuildFile; fileRef = 24BF8FCB20B88AAC0098E71A /* LICENSE.md */; };
 		24BF8FD820B88C3B0098E71A /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24BF8FD720B88C3B0098E71A /* NotificationCenter.framework */; };
 		24BF8FDB20B88C3B0098E71A /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF8FDA20B88C3B0098E71A /* TodayViewController.swift */; };
-		24BF8FDE20B88C3B0098E71A /* TodayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24BF8FDC20B88C3B0098E71A /* TodayViewController.xib */; };
+		24BF8FDE20B88C3B0098E71A /* ReviewSummaryViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24BF8FDC20B88C3B0098E71A /* ReviewSummaryViewController.xib */; };
 		24BF8FE620B88C3B0098E71A /* TodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 24BF8FD520B88C3B0098E71A /* TodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		24BF8FFD20B8999F0098E71A /* TodayConnectKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24BF8FF420B8999F0098E71A /* TodayConnectKit.framework */; };
 		24BF900420B8999F0098E71A /* TodayConnectKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF900320B8999F0098E71A /* TodayConnectKitTests.swift */; };
@@ -118,6 +122,10 @@
 
 /* Begin PBXFileReference section */
 		24677D2F20BAAD7A00F4D530 /* HTTPCookie+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPCookie+Utils.swift"; sourceTree = "<group>"; };
+		24677D3120BAB66900F4D530 /* ReviewSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSummaryViewController.swift; sourceTree = "<group>"; };
+		24677D3620BAB9F000F4D530 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = TodayExtension/Base.lproj/TodayViewController.xib; sourceTree = "<group>"; };
+		24677D3820BABA5000F4D530 /* TodayExtension.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = TodayExtension.storyboard; sourceTree = "<group>"; };
+		24677D3A20BABCAB00F4D530 /* TodayContentViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayContentViewController.swift; sourceTree = "<group>"; };
 		24BF8F9A20B888AA0098E71A /* TodayConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodayConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24BF8F9D20B888AA0098E71A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24BF8F9F20B888AA0098E71A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -133,7 +141,7 @@
 		24BF8FD520B88C3B0098E71A /* TodayExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = TodayExtension.appex; sourceTree = BUILT_PRODUCTS_DIR; };
 		24BF8FD720B88C3B0098E71A /* NotificationCenter.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = NotificationCenter.framework; path = System/Library/Frameworks/NotificationCenter.framework; sourceTree = SDKROOT; };
 		24BF8FDA20B88C3B0098E71A /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
-		24BF8FDD20B88C3B0098E71A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TodayViewController.xib; sourceTree = "<group>"; };
+		24BF8FDD20B88C3B0098E71A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/ReviewSummaryViewController.xib; sourceTree = "<group>"; };
 		24BF8FDF20B88C3B0098E71A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24BF8FE320B88C3B0098E71A /* TodayExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodayExtension.entitlements; sourceTree = "<group>"; };
 		24BF8FF420B8999F0098E71A /* TodayConnectKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TodayConnectKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -290,9 +298,13 @@
 		24BF8FD920B88C3B0098E71A /* TodayExtension */ = {
 			isa = PBXGroup;
 			children = (
-				24BF8FDA20B88C3B0098E71A /* TodayViewController.swift */,
 				24F15FCC20B9C717009E00D5 /* RatingBarView.swift */,
-				24BF8FDC20B88C3B0098E71A /* TodayViewController.xib */,
+				24677D3120BAB66900F4D530 /* ReviewSummaryViewController.swift */,
+				24BF8FDA20B88C3B0098E71A /* TodayViewController.swift */,
+				24677D3A20BABCAB00F4D530 /* TodayContentViewController.swift */,
+				24BF8FDC20B88C3B0098E71A /* ReviewSummaryViewController.xib */,
+				24677D3520BAB9F000F4D530 /* TodayViewController.xib */,
+				24677D3820BABA5000F4D530 /* TodayExtension.storyboard */,
 				24BF8FDF20B88C3B0098E71A /* Info.plist */,
 				24BF8FE320B88C3B0098E71A /* TodayExtension.entitlements */,
 			);
@@ -612,8 +624,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24BF8FDE20B88C3B0098E71A /* TodayViewController.xib in Resources */,
+				24BF8FDE20B88C3B0098E71A /* ReviewSummaryViewController.xib in Resources */,
 				24F15FCB20B9AEF0009E00D5 /* Assets.xcassets in Resources */,
+				24677D3920BABA5000F4D530 /* TodayExtension.storyboard in Resources */,
+				24677D3720BAB9F000F4D530 /* TodayViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -661,7 +675,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				24677D3B20BABCAB00F4D530 /* TodayContentViewController.swift in Sources */,
 				24BF8FDB20B88C3B0098E71A /* TodayViewController.swift in Sources */,
+				24677D3220BAB66900F4D530 /* ReviewSummaryViewController.swift in Sources */,
 				24F15FCD20B9C717009E00D5 /* RatingBarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -737,6 +753,14 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		24677D3520BAB9F000F4D530 /* TodayViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				24677D3620BAB9F000F4D530 /* Base */,
+			);
+			name = TodayViewController.xib;
+			sourceTree = "<group>";
+		};
 		24BF8FA320B888AB0098E71A /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -745,12 +769,12 @@
 			name = Main.storyboard;
 			sourceTree = "<group>";
 		};
-		24BF8FDC20B88C3B0098E71A /* TodayViewController.xib */ = {
+		24BF8FDC20B88C3B0098E71A /* ReviewSummaryViewController.xib */ = {
 			isa = PBXVariantGroup;
 			children = (
 				24BF8FDD20B88C3B0098E71A /* Base */,
 			);
-			name = TodayViewController.xib;
+			name = ReviewSummaryViewController.xib;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
