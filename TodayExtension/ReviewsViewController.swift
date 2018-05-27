@@ -25,5 +25,19 @@ final class ReviewsViewController: NSViewController {
 
     // MARK: Views
 
-    @IBOutlet var tableView: NSScrollView!
+    @IBOutlet var tableView: NSTableView!
+}
+
+// MARK: - Table View Data Source and Delegate
+
+extension ReviewsViewController: NSTableViewDataSource, NSTableViewDelegate {
+    func numberOfRows(in tableView: NSTableView) -> Int {
+        return 3
+    }
+
+    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+        let identifier = NSUserInterfaceItemIdentifier(rawValue: "ReviewCell")
+        guard let cell = tableView.makeView(withIdentifier: identifier, owner: nil) as? NSTableCellView else { fatalError() }
+        return cell
+    }
 }
