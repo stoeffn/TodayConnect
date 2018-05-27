@@ -17,8 +17,8 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-struct ItemContainer<Object: Codable & Equatable>: Codable, Equatable {
-    let value: Object
-    let isEditable: Bool
-    let isRequired: Bool
+public struct ItemContainer<Object: Codable & Equatable>: Codable, Equatable {
+    public let value: Object
+    public let isEditable: Bool
+    public let isRequired: Bool
 }

@@ -17,30 +17,30 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-struct Review: Codable, Equatable {
-    struct DeveloperResponse: Codable, Equatable {
-        enum PendingState: String, Codable {
+public struct Review: Codable, Equatable {
+    public struct DeveloperResponse: Codable, Equatable {
+        public enum PendingState: String, Codable {
             case none = "NONE"
             case pending = "PENDING"
         }
 
-        let responseId: Int
-        let response: String
-        let lastModified: Date
-        let isHidden: Bool
-        let pendingState: PendingState
+        public let responseId: Int
+        public let response: String
+        public let lastModified: Date
+        public let isHidden: Bool
+        public let pendingState: PendingState
     }
 
-    let id: Int
-    let rating: Int
-    let title: String
-    let review: String
-    let nickname: String
-    let storeFront: String
-    let appVersionString: String
-    let lastModified: Date
-    let helpfulView: Int
-    let totalViews: Int
-    let edited: Bool
-    let developerResponse: DeveloperResponse?
+    public let id: Int
+    public let rating: Int
+    public let title: String
+    public let review: String
+    public let nickname: String
+    public let storeFront: String
+    public let appVersionString: String
+    public let lastModified: Date
+    public let helpfulViews: Int
+    public let totalViews: Int
+    public let edited: Bool
+    public let developerResponse: DeveloperResponse?
 }

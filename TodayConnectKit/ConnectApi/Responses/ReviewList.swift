@@ -17,7 +17,14 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-struct ReviewList: Codable, Equatable {
-    let reviewCount: Int
-    let reviews: [ItemContainer<Review>]
+public struct ReviewList: Codable, Equatable {
+    public enum Sorting: String, Codable {
+        case mostRecent = "REVIEW_SORT_ORDER_MOST_RECENT"
+        case mostHelpful = "REVIEW_SORT_ORDER_HELPFUL"
+        case mostFavorable = "REVIEW_SORT_ORDER_RATING_ASC"
+        case mostCritical = "REVIEW_SORT_ORDER_RATING_DESC"
+    }
+
+    public let reviewCount: Int
+    public let reviews: [ItemContainer<Review>]
 }
