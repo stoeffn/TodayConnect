@@ -35,16 +35,37 @@
                                             <segue destination="y7E-xZ-C37" kind="embed" identifier="reviews" id="Uhi-vG-9L8"/>
                                         </connections>
                                     </containerView>
-                                    <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0CN-74-zWh">
-                                        <rect key="frame" x="0.0" y="-1" width="92" height="19"/>
-                                        <buttonCell key="cell" type="recessed" title="Show More…" bezelStyle="recessed" image="buttonCell:EiU-Ru-zCq:image" imagePosition="overlaps" borderStyle="border" focusRingType="none" inset="2" id="EiU-Ru-zCq">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                            <font key="font" metaFont="systemBold" size="12"/>
-                                        </buttonCell>
-                                        <connections>
-                                            <action selector="collapseExpandButtonClicked:" target="6Ym-BR-SBS" id="2zF-bQ-Z3m"/>
-                                        </connections>
-                                    </button>
+                                    <stackView distribution="fill" orientation="horizontal" alignment="firstBaseline" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4K6-Fk-V6Y">
+                                        <rect key="frame" x="0.0" y="0.0" width="216" height="18"/>
+                                        <subviews>
+                                            <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0CN-74-zWh">
+                                                <rect key="frame" x="0.0" y="-1" width="92" height="19"/>
+                                                <buttonCell key="cell" type="recessed" title="Show More…" bezelStyle="recessed" image="buttonCell:EiU-Ru-zCq:image" imagePosition="overlaps" borderStyle="border" focusRingType="none" inset="2" id="EiU-Ru-zCq">
+                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                                    <font key="font" metaFont="systemBold" size="12"/>
+                                                </buttonCell>
+                                                <connections>
+                                                    <action selector="collapseExpandButtonClicked:" target="6Ym-BR-SBS" id="2zF-bQ-Z3m"/>
+                                                </connections>
+                                            </button>
+                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="SCL-ai-eWc">
+                                                <rect key="frame" x="98" y="2" width="120" height="14"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="8 reviews • 64 ratings" id="9Of-YB-FBO">
+                                                    <font key="font" metaFont="smallSystem"/>
+                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </subviews>
+                                        <visibilityPriorities>
+                                            <integer value="1000"/>
+                                            <integer value="1000"/>
+                                        </visibilityPriorities>
+                                        <customSpacing>
+                                            <real value="3.4028234663852886e+38"/>
+                                            <real value="3.4028234663852886e+38"/>
+                                        </customSpacing>
+                                    </stackView>
                                 </subviews>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
@@ -67,12 +88,13 @@
                     </view>
                     <connections>
                         <outlet property="collapseExpandButton" destination="0CN-74-zWh" id="Vd2-Cv-GyB"/>
+                        <outlet property="detailLabel" destination="SCL-ai-eWc" id="zUP-l2-IUs"/>
                         <outlet property="reviewsView" destination="mVC-KI-q6Y" id="qc7-E3-Jn5"/>
                     </connections>
                 </viewController>
                 <customObject id="35i-ct-cDS" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="38" y="-200"/>
+            <point key="canvasLocation" x="38" y="-200.5"/>
         </scene>
         <!--Review Summary View Controller-->
         <scene sceneID="BEY-cw-3X1">

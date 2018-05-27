@@ -37,6 +37,22 @@ final class TodayContentViewController: NSViewController {
         didSet { updateUI() }
     }
 
+    // MARK: Texts
+
+    var ratingCountText: String? {
+        guard let reviewSummary = reviewSummary else { return nil }
+        return "\(reviewSummary.ratingCount) ratings"
+    }
+
+    var reviewCountText: String? {
+        guard let reviews = reviews else { return nil }
+        return "\(reviews.reviewCount)"
+    }
+
+    var detailText: String {
+        return [ratingCountText, reviewCountText].compactMap { $0 }.joined(separator: " • ")
+    }
+
     // MARK: Child Controllers
 
     private var reviewSummaryViewController: ReviewSummaryViewController?
@@ -46,6 +62,8 @@ final class TodayContentViewController: NSViewController {
     // MARK: Views
 
     @IBOutlet var reviewsView: NSView!
+
+    @IBOutlet var detailLabel: NSTextField!
 
     @IBOutlet var collapseExpandButton: NSButton!
 
@@ -60,6 +78,8 @@ final class TodayContentViewController: NSViewController {
             .map { $0.value }
 
         collapseExpandButton.title = isCollapsed ? "Show More…" : "Show Less…"
+        detailLabel.isHidden = isCollapsed
+        detailLabel.stringValue = detailText
     }
 
     // MARK: - User Interaction

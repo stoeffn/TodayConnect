@@ -18,6 +18,11 @@
 //
 
 public struct ReviewSummary: Codable, Equatable {
+    public struct RatingsReset: Codable, Equatable {
+        let date: Date
+        let appVersionString: String
+    }
+
     public let reviewCount: Int
     public let ratingCount: Int
     public let ratingOneCount: Int
@@ -26,4 +31,5 @@ public struct ReviewSummary: Codable, Equatable {
     public let ratingFourCount: Int
     public let ratingFiveCount: Int
     public let averageRating: Double
+    public let ratingsReset: RatingsReset?
 }
