@@ -18,10 +18,12 @@
 //
 
 public final class DefaultsCookieStorage: HTTPCookieStorage {
-    public static let defaultDefaults = UserDefaults(suiteName: App.groupIdentifier)!
-
     private let defaultsCookiesKey = "cookies"
     private let defaults: UserDefaults
+
+    // MARK: - Defaults
+
+    public static let defaultDefaults = UserDefaults(suiteName: App.groupIdentifier)!
 
     // MARK: - Life Cycle
 

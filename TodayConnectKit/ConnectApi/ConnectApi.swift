@@ -18,11 +18,20 @@
 //
 
 public final class ConnectApi {
-    public static let defaultBaseUrl = URL(string: "https://itunesconnect.apple.com/WebObjects/iTunesConnect.woa/ra/")!
-    public static let defaultCookieStorage = DefaultsCookieStorage()
-
     private let api: Api<ConnectApiRoutes>
     private let olympusApi: OlympusApi
+
+    // MARK: - Defaults
+
+    public static let defaultBaseUrl = URL(string: "https://itunesconnect.apple.com/WebObjects/iTunesConnect.woa/ra/")!
+
+    public static let defaultCookieStorage = DefaultsCookieStorage()
+
+    static let defaultJsonDecoder: JSONDecoder = {
+        let decoder = JSONDecoder()
+        decoder.dateDecodingStrategy = .millisecondsSince1970
+        return decoder
+    }()
 
     // MARK: - Life Cycle
 

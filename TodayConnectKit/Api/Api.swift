@@ -33,6 +33,7 @@ class Api<Routes: ApiRoutes> {
     // MARK: - Life Cycle
 
     private let session: URLSession
+    private let jsonDecoder: JSONDecoder
 
     /// Base `URL` of all requests this instance issues. Any route paths will be appended to it.
     let baseUrl: URL
@@ -42,9 +43,11 @@ class Api<Routes: ApiRoutes> {
     /// - Parameters:
     ///   - baseUrl: Base `URL` of all requests this instance issues. Any route paths will be appended to it.
     ///   - session: URL Session, which defaults to the shared session.
-    init(baseUrl: URL, session: URLSession = .shared) {
+    ///   - jsonDecoder: JSON decoder to use for decoding responses.
+    init(baseUrl: URL, session: URLSession = .shared, jsonDecoder: JSONDecoder = JSONDecoder()) {
         self.baseUrl = baseUrl
         self.session = session
+        self.jsonDecoder = jsonDecoder
     }
 
     // MARK: - Performing Data Requests
@@ -79,7 +82,7 @@ class Api<Routes: ApiRoutes> {
             fatalError("Trying to decode response from untyped API route '\(route)'.")
         }
         return request(route) { result in
-            completion(result.decoded(type))
+            completion(result.decoded(type, decoder: self.jsonDecoder))
         }
     }
 }

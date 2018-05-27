@@ -34,8 +34,10 @@ extension Result where Value == (value: Data, response: HTTPURLResponse) {
     /// Returns the API result decoded from its JSON representation. If the data is not valid, the return value will be a
     /// `.failure`.
     ///
-    /// - Parameter type: Expected object type.
-    func decoded<Value: Decodable>(_ type: Value.Type) -> ApiResult<Value> {
-        return map { (try JSONDecoder().decode(type, from: $0.value), $0.response) }
+    /// - Parameters:
+    ///     - type: Expected object type.
+    ///     - decoder: JSON decoder to use for decoding.
+    func decoded<Value: Decodable>(_ type: Value.Type, decoder: JSONDecoder = JSONDecoder()) -> ApiResult<Value> {
+        return map { (try decoder.decode(type, from: $0.value), $0.response) }
     }
 }

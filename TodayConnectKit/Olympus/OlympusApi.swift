@@ -18,9 +18,11 @@
 //
 
 final class OlympusApi {
-    private static let defaultBaseUrl = URL(string: "https://olympus.itunes.apple.com/v1/")!
-
     private let api: Api<OlympusApiRoutes>
+
+    // MARK: - Defaults
+
+    private static let defaultBaseUrl = URL(string: "https://olympus.itunes.apple.com/v1/")!
 
     // MARK: - Life Cycle
 
