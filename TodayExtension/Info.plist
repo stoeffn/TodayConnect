@@ -36,7 +36,7 @@
 		<key>NSExtensionPrincipalClass</key>
 		<string>$(PRODUCT_MODULE_NAME).TodayViewController</string>
 		<key>com.apple.notificationcenter.widget.description</key>
-		<string>TodayExtension</string>
+		<string>Ratings</string>
 	</dict>
 	<key>NSHumanReadableCopyright</key>
 	<string>Copyright © 2018 Steffen Ryll. All rights reserved.</string>

@@ -17,7 +17,6 @@
 		24BF8FD820B88C3B0098E71A /* NotificationCenter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24BF8FD720B88C3B0098E71A /* NotificationCenter.framework */; };
 		24BF8FDB20B88C3B0098E71A /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF8FDA20B88C3B0098E71A /* TodayViewController.swift */; };
 		24BF8FDE20B88C3B0098E71A /* TodayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24BF8FDC20B88C3B0098E71A /* TodayViewController.xib */; };
-		24BF8FE220B88C3B0098E71A /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 24BF8FE020B88C3B0098E71A /* InfoPlist.strings */; };
 		24BF8FE620B88C3B0098E71A /* TodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 24BF8FD520B88C3B0098E71A /* TodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		24BF8FFD20B8999F0098E71A /* TodayConnectKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24BF8FF420B8999F0098E71A /* TodayConnectKit.framework */; };
 		24BF900420B8999F0098E71A /* TodayConnectKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF900320B8999F0098E71A /* TodayConnectKitTests.swift */; };
@@ -136,7 +135,6 @@
 		24BF8FDA20B88C3B0098E71A /* TodayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayViewController.swift; sourceTree = "<group>"; };
 		24BF8FDD20B88C3B0098E71A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/TodayViewController.xib; sourceTree = "<group>"; };
 		24BF8FDF20B88C3B0098E71A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		24BF8FE120B88C3B0098E71A /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		24BF8FE320B88C3B0098E71A /* TodayExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = TodayExtension.entitlements; sourceTree = "<group>"; };
 		24BF8FF420B8999F0098E71A /* TodayConnectKit.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = TodayConnectKit.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		24BF8FF620B8999F0098E71A /* TodayConnectKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayConnectKit.h; sourceTree = "<group>"; };
@@ -296,7 +294,6 @@
 				24F15FCC20B9C717009E00D5 /* RatingBarView.swift */,
 				24BF8FDC20B88C3B0098E71A /* TodayViewController.xib */,
 				24BF8FDF20B88C3B0098E71A /* Info.plist */,
-				24BF8FE020B88C3B0098E71A /* InfoPlist.strings */,
 				24BF8FE320B88C3B0098E71A /* TodayExtension.entitlements */,
 			);
 			path = TodayExtension;
@@ -617,7 +614,6 @@
 			files = (
 				24BF8FDE20B88C3B0098E71A /* TodayViewController.xib in Resources */,
 				24F15FCB20B9AEF0009E00D5 /* Assets.xcassets in Resources */,
-				24BF8FE220B88C3B0098E71A /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -755,14 +751,6 @@
 				24BF8FDD20B88C3B0098E71A /* Base */,
 			);
 			name = TodayViewController.xib;
-			sourceTree = "<group>";
-		};
-		24BF8FE020B88C3B0098E71A /* InfoPlist.strings */ = {
-			isa = PBXVariantGroup;
-			children = (
-				24BF8FE120B88C3B0098E71A /* en */,
-			);
-			name = InfoPlist.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
