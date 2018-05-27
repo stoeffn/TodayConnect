@@ -17,13 +17,7 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-public struct ReviewSummaryResponse: Codable, Equatable {
-    public let reviewCount: Int
-    public let ratingCount: Int
-    public let ratingOneCount: Int
-    public let ratingTwoCount: Int
-    public let ratingThreeCount: Int
-    public let ratingFourCount: Int
-    public let ratingFiveCount: Int
-    public let averageRating: Double
+struct AppConfig: Codable, Equatable {
+    let authServiceUrl: URL
+    let authServiceKey: String
 }

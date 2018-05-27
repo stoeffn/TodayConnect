@@ -36,8 +36,8 @@ final class OlympusApi {
     // MARK: - Retrieving App Information
 
     @discardableResult
-    func appConfig(forHost host: String, completion: @escaping ResultHandler<AppConfigResponse>) -> URLSessionTask {
-        return api.request(.appConfiguration(host: host)) { (result: ApiResult<AppConfigResponse>) in
+    func appConfig(forHost host: String, completion: @escaping ResultHandler<AppConfig>) -> URLSessionTask {
+        return api.request(.appConfiguration(host: host)) { (result: ApiResult<AppConfig>) in
             completion(result.map { $0.value })
         }
     }

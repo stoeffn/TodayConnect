@@ -37,7 +37,7 @@ enum OlympusApiRoutes: ApiRoutes {
     var responseType: Decodable.Type? {
         switch self {
         case .appConfiguration:
-            return AppConfigResponse.self
+            return AppConfig.self
         }
     }
 }

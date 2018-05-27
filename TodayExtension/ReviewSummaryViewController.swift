@@ -32,7 +32,7 @@ final class ReviewSummaryViewController: NSViewController {
 
     // MARK: Properties
 
-    var reviewSummary: ReviewSummaryResponse? {
+    var reviewSummary: ReviewSummary? {
         didSet { updateUI() }
     }
 

@@ -38,7 +38,7 @@ enum ConnectApiRoutes: ApiRoutes {
     var responseType: Decodable.Type? {
         switch self {
         case .reviewSummary:
-            return ConnectResponse<ReviewSummaryResponse>.self
+            return ConnectResponse<ReviewSummary>.self
         }
     }
 }

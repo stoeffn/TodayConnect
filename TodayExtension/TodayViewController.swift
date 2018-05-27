@@ -54,7 +54,7 @@ final class TodayViewController: NSViewController, NCWidgetProviding {
         return NSNib.Name("TodayViewController")
     }
 
-    var reviewSummary: ReviewSummaryResponse? {
+    var reviewSummary: ReviewSummary? {
         didSet { updateUI() }
     }
 

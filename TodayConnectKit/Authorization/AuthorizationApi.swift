@@ -28,7 +28,7 @@ public final class AuthorizationApi {
         self.api = api
     }
 
-    convenience init(appConfig: AppConfigResponse, cookieStorage: HTTPCookieStorage? = nil) {
+    convenience init(appConfig: AppConfig, cookieStorage: HTTPCookieStorage? = nil) {
         let configuration = AuthorizationApi.sessionConfig(for: appConfig, cookieStorage: cookieStorage)
         let session = URLSession(configuration: configuration)
         self.init(api: Api<AuthorizationApiRoutes>(baseUrl: appConfig.authServiceUrl, session: session))
@@ -36,7 +36,7 @@ public final class AuthorizationApi {
 
     // MARK: - Configuring
 
-    private static func sessionConfig(for appConfig: AppConfigResponse,
+    private static func sessionConfig(for appConfig: AppConfig,
                                       cookieStorage: HTTPCookieStorage? = nil) -> URLSessionConfiguration {
         let configuration = URLSessionConfiguration.default
         configuration.httpCookieStorage = cookieStorage
