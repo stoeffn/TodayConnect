@@ -33,7 +33,7 @@ final class ReviewDetailViewController: NSViewController {
         didSet { updateUI() }
     }
 
-    @objc dynamic var isCollapsed: Bool = true {
+    @objc dynamic var isExpanded: Bool = false {
         didSet { updateUI() }
     }
 
@@ -62,8 +62,8 @@ final class ReviewDetailViewController: NSViewController {
     // MARK: UI Cycle
 
     private func updateUI() {
-        collapseExpandButton.title = isCollapsed ? "Show More…" : "Show Less…"
-        detailLabel.alphaValue = isCollapsed ? 0 : 0.6
+        collapseExpandButton.title = isExpanded ? "Show Less…" : "Show More…"
+        detailLabel.alphaValue = isExpanded ? 0.6 : 0
         detailLabel.stringValue = detailText
     }
 
@@ -71,6 +71,6 @@ final class ReviewDetailViewController: NSViewController {
 
     @IBAction
     func collapseExpandButtonClicked(_ sender: Any) {
-        isCollapsed = !isCollapsed
+        isExpanded = !isExpanded
     }
 }

@@ -22,9 +22,12 @@ import NotificationCenter
 import TodayConnectKit
 
 final class TodayViewController: NSViewController, NCWidgetProviding {
+    private static let defaultsExpandedKey = "isExpanded"
+
     private let api = ConnectApi()
     private let appId = "1317593772"
     private let platform = Platforms.iOS
+    private var contentViewControllerObservations: [NSKeyValueObservation] = []
 
     // MARK: - Life Cycle
 
@@ -32,6 +35,10 @@ final class TodayViewController: NSViewController, NCWidgetProviding {
         super.viewDidLoad()
         initUI()
         updateUI()
+    }
+
+    deinit {
+        contentViewControllerObservations = []
     }
 
     // MARK: - User Interface
@@ -69,6 +76,14 @@ final class TodayViewController: NSViewController, NCWidgetProviding {
         contentViewController.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         contentViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         contentViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        contentViewController.isExpanded = UserDefaults.standard.bool(forKey: TodayViewController.defaultsExpandedKey)
+
+        contentViewControllerObservations = [
+            contentViewController.observe(\.isExpanded, options: [.old, .new]) { [unowned self] (_, change) in
+                guard change.newValue != change.oldValue else { return }
+                UserDefaults.standard.set(self.contentViewController.isExpanded, forKey: TodayViewController.defaultsExpandedKey)
+            }
+        ]
     }
 
     private func updateUI() {

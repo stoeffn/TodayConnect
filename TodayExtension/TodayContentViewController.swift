@@ -41,7 +41,7 @@ final class TodayContentViewController: NSViewController {
         didSet { updateUI() }
     }
 
-    var isCollapsed: Bool = true {
+    @objc dynamic var isExpanded: Bool = false {
         didSet { updateUI() }
     }
 
@@ -64,19 +64,19 @@ final class TodayContentViewController: NSViewController {
     private func updateUI() {
         reviewSummaryViewController?.reviewSummary = reviewSummary
 
-        reviewsView.isHidden = isCollapsed
-        reviewsViewController?.reviews = reviews?.reviews
-            .prefix(5)
-            .map { $0.value }
+        reviewsView.isHidden = !isExpanded
+        reviewsViewController?.reviews = reviews?.reviews.prefix(5).map { $0.value }
 
-        reviewDetailViewController.reviewSummary = reviewSummary
-        reviewDetailViewController.reviews = reviews
+        reviewDetailViewController.isExpanded = isExpanded
+        reviewDetailViewController?.reviewSummary = reviewSummary
+        reviewDetailViewController?.reviews = reviews
     }
 
     private func bindReviewDetailViewController() {
         reviewDetailViewControllerObservations = [
-            reviewDetailViewController.observe(\.isCollapsed) { [unowned self] (_, _) in
-                self.isCollapsed = self.reviewDetailViewController.isCollapsed
+            reviewDetailViewController.observe(\.isExpanded, options: [.old, .new]) { [unowned self] (_, change) in
+                guard change.newValue != change.oldValue else { return }
+                self.isExpanded = self.reviewDetailViewController.isExpanded
             },
         ]
     }

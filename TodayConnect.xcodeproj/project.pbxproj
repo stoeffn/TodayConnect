@@ -333,6 +333,7 @@
 			children = (
 				24F15FCC20B9C717009E00D5 /* RatingBarView.swift */,
 				2421B59620BB0DFB00A7155A /* RatingStarView.swift */,
+				24B4D7E220BB2D3100802506 /* ReviewDetailViewController.swift */,
 				24677D3120BAB66900F4D530 /* ReviewSummaryViewController.swift */,
 				24677D6420BAEE4B00F4D530 /* ReviewTableCellView.swift */,
 				24677D3C20BAC60E00F4D530 /* ReviewsViewController.swift */,
@@ -342,7 +343,6 @@
 				24677D3820BABA5000F4D530 /* TodayExtension.storyboard */,
 				24BF8FDF20B88C3B0098E71A /* Info.plist */,
 				24BF8FE320B88C3B0098E71A /* TodayExtension.entitlements */,
-				24B4D7E220BB2D3100802506 /* ReviewDetailViewController.swift */,
 			);
 			path = TodayExtension;
 			sourceTree = "<group>";
