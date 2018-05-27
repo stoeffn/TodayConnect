@@ -23,6 +23,8 @@ import TodayConnectKit
 
 final class TodayViewController: NSViewController, NCWidgetProviding {
     private let api = ConnectApi()
+    private let appId = "1317593772"
+    private let platform = Platforms.iOS
 
     // MARK: - Life Cycle
 
@@ -30,20 +32,6 @@ final class TodayViewController: NSViewController, NCWidgetProviding {
         super.viewDidLoad()
         initUI()
         updateUI()
-    }
-
-    func widgetPerformUpdate(completionHandler: (@escaping (NCUpdateResult) -> Void)) {
-        api.reviewSummary(forAppId: "1317593772", platform: .iOS) { result in
-            switch result {
-            case let .success(reviewSummary) where reviewSummary != self.reviewSummary:
-                DispatchQueue.main.async { self.reviewSummary = reviewSummary }
-                completionHandler(.newData)
-            case .success:
-                completionHandler(.noData)
-            case .failure:
-                completionHandler(.failed)
-            }
-        }
     }
 
     // MARK: - User Interface
@@ -55,6 +43,10 @@ final class TodayViewController: NSViewController, NCWidgetProviding {
     }
 
     var reviewSummary: ReviewSummary? {
+        didSet { updateUI() }
+    }
+
+    var reviews: ReviewList? {
         didSet { updateUI() }
     }
 
@@ -81,5 +73,66 @@ final class TodayViewController: NSViewController, NCWidgetProviding {
 
     private func updateUI() {
         contentViewController.reviewSummary = reviewSummary
+        print(reviews)
+    }
+
+    // MARK: - Updating
+
+    func widgetPerformUpdate(completionHandler completion: @escaping (NCUpdateResult) -> Void) {
+        let group = DispatchGroup()
+        var results: [NCUpdateResult] = []
+
+        func addResult(_ result: NCUpdateResult) {
+            results.append(result)
+            group.leave()
+        }
+
+        group.enter()
+        updateReviewSummary(completion: addResult)
+
+        group.enter()
+        updateReviews(completion: addResult)
+
+        group.notify(queue: .main) {
+            let result = results.reduce(NCUpdateResult.failed) { (result, newResult) -> NCUpdateResult in
+                switch (result, newResult) {
+                case (_, .newData): return .newData
+                case (.newData, _): return .newData
+                case (_, .noData): return .noData
+                case (.noData, _): return .noData
+                default: return .failed
+                }
+            }
+
+            completion(result)
+        }
+    }
+
+    func updateReviewSummary(completion: @escaping (NCUpdateResult) -> Void) {
+        api.reviewSummary(forAppId: appId, platform: platform) { result in
+            switch result {
+            case let .success(reviewSummary) where reviewSummary != self.reviewSummary:
+                DispatchQueue.main.async { self.reviewSummary = reviewSummary }
+                completion(.newData)
+            case .success:
+                completion(.noData)
+            case .failure:
+                completion(.failed)
+            }
+        }
+    }
+
+    func updateReviews(completion: @escaping (NCUpdateResult) -> Void) {
+        api.reviews(forAppId: appId, platform: platform) { result in
+            switch result {
+            case let .success(reviews) where reviews != self.reviews:
+                DispatchQueue.main.async { self.reviews = reviews }
+                completion(.newData)
+            case .success:
+                completion(.noData)
+            case .failure:
+                completion(.failed)
+            }
+        }
     }
 }
