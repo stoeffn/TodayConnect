@@ -22,6 +22,14 @@ import TodayConnectKit
 
 final class ReviewsViewController: NSViewController {
 
+    // MARK: - Life Cycle
+
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        initUI()
+        updateUI()
+    }
+
     // MARK: - User Interface
 
     // MARK: Properties
@@ -32,12 +40,23 @@ final class ReviewsViewController: NSViewController {
 
     // MARK: Views
 
+    @IBOutlet var scrollView: NSScrollView!
+
     @IBOutlet var tableView: NSTableView!
+
+    // MARK: Constraints
+
+    private lazy var heightConstraint = view.heightAnchor.constraint(equalToConstant: 0)
 
     // MARK: UI Cycle
 
+    private func initUI() {
+        heightConstraint.isActive = true
+    }
+
     private func updateUI() {
         tableView.reloadData()
+        heightConstraint.constant = scrollView.documentView?.bounds.height ?? 0
     }
 }
 

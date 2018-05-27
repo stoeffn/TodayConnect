@@ -28,9 +28,6 @@
                             </containerView>
                             <containerView translatesAutoresizingMaskIntoConstraints="NO" id="mVC-KI-q6Y">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="199"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="199" id="8e2-1P-LJ7"/>
-                                </constraints>
                                 <connections>
                                     <segue destination="y7E-xZ-C37" kind="embed" identifier="reviews" id="Uhi-vG-9L8"/>
                                 </connections>
@@ -564,6 +561,7 @@
                         </subviews>
                     </view>
                     <connections>
+                        <outlet property="scrollView" destination="X1e-bz-GfQ" id="dFo-dk-LdJ"/>
                         <outlet property="tableView" destination="QjD-W2-khd" id="ku9-cJ-sLg"/>
                     </connections>
                 </viewController>
