@@ -56,7 +56,11 @@ final class ReviewsViewController: NSViewController {
 
     private func updateUI() {
         tableView.reloadData()
-        heightConstraint.constant = scrollView.documentView?.bounds.height ?? 0
+
+        // Needs to be called after Auto Layout did its work.
+        DispatchQueue.main.asyncAfter(deadline: .now() + .milliseconds(100)) {
+            self.heightConstraint.constant = self.scrollView.documentView?.bounds.height ?? 0
+        }
     }
 }
 
