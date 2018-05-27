@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2421B59720BB0DFB00A7155A /* RatingStarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2421B59620BB0DFB00A7155A /* RatingStarView.swift */; };
 		24677D3020BAAD7A00F4D530 /* HTTPCookie+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24677D2F20BAAD7A00F4D530 /* HTTPCookie+Utils.swift */; };
 		24677D3220BAB66900F4D530 /* ReviewSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24677D3120BAB66900F4D530 /* ReviewSummaryViewController.swift */; };
 		24677D3720BAB9F000F4D530 /* TodayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24677D3520BAB9F000F4D530 /* TodayViewController.xib */; };
@@ -125,6 +126,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		2421B59620BB0DFB00A7155A /* RatingStarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingStarView.swift; sourceTree = "<group>"; };
 		24677D2F20BAAD7A00F4D530 /* HTTPCookie+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPCookie+Utils.swift"; sourceTree = "<group>"; };
 		24677D3120BAB66900F4D530 /* ReviewSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSummaryViewController.swift; sourceTree = "<group>"; };
 		24677D3620BAB9F000F4D530 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = TodayExtension/Base.lproj/TodayViewController.xib; sourceTree = "<group>"; };
@@ -328,6 +330,7 @@
 			isa = PBXGroup;
 			children = (
 				24F15FCC20B9C717009E00D5 /* RatingBarView.swift */,
+				2421B59620BB0DFB00A7155A /* RatingStarView.swift */,
 				24677D3120BAB66900F4D530 /* ReviewSummaryViewController.swift */,
 				24677D6420BAEE4B00F4D530 /* ReviewTableCellView.swift */,
 				24677D3C20BAC60E00F4D530 /* ReviewsViewController.swift */,
@@ -706,6 +709,7 @@
 				24677D3E20BAC60E00F4D530 /* ReviewsViewController.swift in Sources */,
 				24BF8FDB20B88C3B0098E71A /* TodayViewController.swift in Sources */,
 				24677D6520BAEE4B00F4D530 /* ReviewTableCellView.swift in Sources */,
+				2421B59720BB0DFB00A7155A /* RatingStarView.swift in Sources */,
 				24677D3220BAB66900F4D530 /* ReviewSummaryViewController.swift in Sources */,
 				24F15FCD20B9C717009E00D5 /* RatingBarView.swift in Sources */,
 			);

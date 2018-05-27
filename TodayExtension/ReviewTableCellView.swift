@@ -33,6 +33,8 @@ final class ReviewTableCellView: NSTableCellView {
 
     @IBOutlet var titleLabel: NSTextField!
 
+    @IBOutlet var ratingStarView: RatingStarView!
+
     @IBOutlet var dateLabel: NSTextField!
 
     @IBOutlet var reviewLabel: NSTextField!
@@ -43,6 +45,7 @@ final class ReviewTableCellView: NSTableCellView {
         guard let review = review else { return }
 
         titleLabel.stringValue = review.title
+        ratingStarView.rating = review.rating
         dateLabel.stringValue = DateFormatter.localizedString(from: review.lastModified, dateStyle: .medium, timeStyle: .none)
         reviewLabel.stringValue = review.review
     }

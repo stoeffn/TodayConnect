@@ -20,54 +20,61 @@
 import Cocoa
 
 @IBDesignable
-final class RatingBarView: NSView {
+final class RatingStarView: NSView {
 
     // MARK: - Life Cycle
 
     override init(frame frameRect: NSRect) {
         super.init(frame: frameRect)
         initUI()
-        updateUI()
     }
 
     required init?(coder decoder: NSCoder) {
         super.init(coder: decoder)
         initUI()
-        updateUI()
     }
 
     // MARK: - User Interface
 
     // MARK: Properties
 
-    override var frame: NSRect {
-        didSet { updateUI() }
-    }
-
     @IBInspectable
-    var percentage: Double = 0 {
+    var rating: Int = 5 {
         didSet { updateUI() }
     }
 
-    // MARK: Layers
+    // MARK: Views
 
-    private var barLayer: CALayer = {
-        let layer = CALayer()
-        layer.backgroundColor = NSColor.black.cgColor
-        return layer
+    private lazy var stackView: NSStackView = {
+        let stackView = NSStackView(views: starImageViews)
+        stackView.translatesAutoresizingMaskIntoConstraints = false
+        stackView.orientation = .horizontal
+        stackView.spacing = 0
+        return stackView
+    }()
+
+    private lazy var starImageViews: [NSImageView] = {
+        return (0 ..< 5).map { _ in
+            let imageView = NSImageView(image: #imageLiteral(resourceName: "StarGlyph"))
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: 1).isActive = true
+            return imageView
+        }
     }()
 
     // MARK: UI Cycle
 
     private func initUI() {
-        wantsLayer = true
-
-        layer?.backgroundColor = NSColor.gray.cgColor
-        layer?.addSublayer(barLayer)
+        addSubview(stackView)
+        stackView.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
+        stackView.topAnchor.constraint(equalTo: topAnchor).isActive = true
+        stackView.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
+        stackView.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
     }
 
     private func updateUI() {
-        let barWidth = CGFloat(max(min(percentage, 1), 0)) * bounds.width
-        barLayer.frame = CGRect(x: 0, y: 0, width: barWidth, height: bounds.height)
+        for (index, starImageView) in starImageViews.enumerated() {
+            starImageView.alphaValue = index < rating ? 1 : 0.4
+        }
     }
 }
