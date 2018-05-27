@@ -73,7 +73,7 @@ final class TodayViewController: NSViewController, NCWidgetProviding {
 
     private func updateUI() {
         contentViewController.reviewSummary = reviewSummary
-        print(reviews)
+        contentViewController.reviews = reviews
     }
 
     // MARK: - Updating

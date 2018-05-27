@@ -18,26 +18,40 @@
 //
 
 import Cocoa
+import TodayConnectKit
 
 final class ReviewsViewController: NSViewController {
 
     // MARK: - User Interface
 
+    // MARK: Properties
+
+    var reviews: [Review]? {
+        didSet { updateUI() }
+    }
+
     // MARK: Views
 
     @IBOutlet var tableView: NSTableView!
+
+    // MARK: UI Cycle
+
+    private func updateUI() {
+        tableView.reloadData()
+    }
 }
 
 // MARK: - Table View Data Source and Delegate
 
 extension ReviewsViewController: NSTableViewDataSource, NSTableViewDelegate {
     func numberOfRows(in tableView: NSTableView) -> Int {
-        return 3
+        return reviews?.count ?? 0
     }
 
     func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
-        let identifier = NSUserInterfaceItemIdentifier(rawValue: "ReviewCell")
-        guard let cell = tableView.makeView(withIdentifier: identifier, owner: nil) as? NSTableCellView else { fatalError() }
+        let identifier = NSUserInterfaceItemIdentifier(rawValue: String(describing: ReviewTableCellView.self))
+        guard let cell = tableView.makeView(withIdentifier: identifier, owner: nil) as? ReviewTableCellView else { fatalError() }
+        cell.review = reviews?[row]
         return cell
     }
 }

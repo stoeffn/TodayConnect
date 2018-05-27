@@ -32,7 +32,7 @@
                                     <constraint firstAttribute="height" constant="199" id="8e2-1P-LJ7"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="y7E-xZ-C37" kind="embed" id="Uhi-vG-9L8"/>
+                                    <segue destination="y7E-xZ-C37" kind="embed" identifier="reviews" id="Uhi-vG-9L8"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -506,7 +506,7 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView identifier="ReviewCell" id="tWC-vG-QC8">
+                                                        <tableCellView identifier="ReviewTableCellView" id="tWC-vG-QC8" customClass="ReviewTableCellView" customModule="TodayExtension" customModuleProvider="target">
                                                             <rect key="frame" x="1" y="1" width="317" height="34"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -536,6 +536,10 @@
                                                                 <constraint firstItem="yUb-tj-Pia" firstAttribute="leading" secondItem="tWC-vG-QC8" secondAttribute="leading" id="tqS-qM-wwP"/>
                                                                 <constraint firstItem="yUb-tj-Pia" firstAttribute="top" secondItem="tWC-vG-QC8" secondAttribute="top" id="xFm-BF-RCH"/>
                                                             </constraints>
+                                                            <connections>
+                                                                <outlet property="reviewLabel" destination="JFU-gj-yGc" id="vHA-CX-f82"/>
+                                                                <outlet property="titleLabel" destination="yUb-tj-Pia" id="fyn-Er-dR3"/>
+                                                            </connections>
                                                         </tableCellView>
                                                     </prototypeCellViews>
                                                 </tableColumn>

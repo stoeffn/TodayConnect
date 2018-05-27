@@ -20,48 +20,27 @@
 import Cocoa
 import TodayConnectKit
 
-final class TodayContentViewController: NSViewController {
+final class ReviewTableCellView: NSTableCellView {
     // MARK: - User Interface
 
     // MARK: Properties
 
-    var reviewSummary: ReviewSummary? {
+    var review: Review? {
         didSet { updateUI() }
     }
 
-    var reviews: ReviewList? {
-        didSet { updateUI() }
-    }
+    // MARK: Views
 
-    // MARK: Child Controllers
+    @IBOutlet var titleLabel: NSTextField!
 
-    private var reviewSummaryViewController: ReviewSummaryViewController?
-
-    private var reviewsViewController: ReviewsViewController?
+    @IBOutlet var reviewLabel: NSTextField!
 
     // MARK: UI Cycle
 
     private func updateUI() {
-        reviewSummaryViewController?.reviewSummary = reviewSummary
-        reviewsViewController?.reviews = reviews?.reviews.map { $0.value }
-    }
+        guard let review = review else { return }
 
-    // MARK: - Navigation
-
-    enum Segues: String {
-        case reviewSummary, reviews
-    }
-
-    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        guard let identifier = segue.identifier?.rawValue else { return }
-
-        switch Segues(rawValue: identifier) {
-        case .reviewSummary?:
-            reviewSummaryViewController = segue.destinationController as? ReviewSummaryViewController
-        case .reviews?:
-            reviewsViewController = segue.destinationController as? ReviewsViewController
-        case nil:
-            break
-        }
+        titleLabel.stringValue = review.title
+        reviewLabel.stringValue = review.review
     }
 }
