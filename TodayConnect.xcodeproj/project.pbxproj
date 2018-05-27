@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		24677D3020BAAD7A00F4D530 /* HTTPCookie+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24677D2F20BAAD7A00F4D530 /* HTTPCookie+Utils.swift */; };
 		24A11E7720B9F0D900C157EB /* TodayConnectKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24BF8FF420B8999F0098E71A /* TodayConnectKit.framework */; };
 		24BF8F9E20B888AA0098E71A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF8F9D20B888AA0098E71A /* AppDelegate.swift */; };
 		24BF8FA020B888AA0098E71A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF8F9F20B888AA0098E71A /* ViewController.swift */; };
@@ -43,7 +44,7 @@
 		24BF903D20B981F80098E71A /* ConnectResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF903C20B981F80098E71A /* ConnectResponse.swift */; };
 		24F15FCB20B9AEF0009E00D5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24BF8FA120B888AB0098E71A /* Assets.xcassets */; };
 		24F15FCD20B9C717009E00D5 /* RatingBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F15FCC20B9C717009E00D5 /* RatingBarView.swift */; };
-		24F15FCF20B9CB3A009E00D5 /* AuthorizationCookieStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F15FCE20B9CB3A009E00D5 /* AuthorizationCookieStorage.swift */; };
+		24F15FCF20B9CB3A009E00D5 /* DefaultsCookieStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24F15FCE20B9CB3A009E00D5 /* DefaultsCookieStorage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		24677D2F20BAAD7A00F4D530 /* HTTPCookie+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPCookie+Utils.swift"; sourceTree = "<group>"; };
 		24BF8F9A20B888AA0098E71A /* TodayConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodayConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24BF8F9D20B888AA0098E71A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24BF8F9F20B888AA0098E71A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -161,7 +163,7 @@
 		24BF903A20B981D10098E71A /* ReviewSummaryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSummaryResponse.swift; sourceTree = "<group>"; };
 		24BF903C20B981F80098E71A /* ConnectResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectResponse.swift; sourceTree = "<group>"; };
 		24F15FCC20B9C717009E00D5 /* RatingBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingBarView.swift; sourceTree = "<group>"; };
-		24F15FCE20B9CB3A009E00D5 /* AuthorizationCookieStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthorizationCookieStorage.swift; sourceTree = "<group>"; };
+		24F15FCE20B9CB3A009E00D5 /* DefaultsCookieStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultsCookieStorage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -214,6 +216,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		24677D2E20BAAD6900F4D530 /* Foundation */ = {
+			isa = PBXGroup;
+			children = (
+				24677D2F20BAAD7A00F4D530 /* HTTPCookie+Utils.swift */,
+			);
+			path = Foundation;
+			sourceTree = "<group>";
+		};
 		24BF8F9120B888AA0098E71A = {
 			isa = PBXGroup;
 			children = (
@@ -342,6 +352,7 @@
 		24BF902820B9507A0098E71A /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				24677D2E20BAAD6900F4D530 /* Foundation */,
 				24BF902920B950800098E71A /* Swift */,
 			);
 			path = Extensions;
@@ -370,7 +381,7 @@
 			children = (
 				24BF903220B966100098E71A /* AuthorizationApi.swift */,
 				24BF902E20B95DAE0098E71A /* AuthorizationApiRoutes.swift */,
-				24F15FCE20B9CB3A009E00D5 /* AuthorizationCookieStorage.swift */,
+				24F15FCE20B9CB3A009E00D5 /* DefaultsCookieStorage.swift */,
 				24BF901C20B8ACFD0098E71A /* LoginRequest.swift */,
 				24BF901E20B8B19C0098E71A /* VerifySecurityCodeRequest.swift */,
 			);
@@ -670,6 +681,7 @@
 				24BF901320B89A200098E71A /* ConnectApi.swift in Sources */,
 				24BF903920B97FF60098E71A /* App.swift in Sources */,
 				24BF903720B978550098E71A /* Platforms.swift in Sources */,
+				24677D3020BAAD7A00F4D530 /* HTTPCookie+Utils.swift in Sources */,
 				24BF903B20B981D10098E71A /* ReviewSummaryResponse.swift in Sources */,
 				24BF901D20B8ACFD0098E71A /* LoginRequest.swift in Sources */,
 				24BF903D20B981F80098E71A /* ConnectResponse.swift in Sources */,
@@ -677,7 +689,7 @@
 				24BF903320B966100098E71A /* AuthorizationApi.swift in Sources */,
 				24BF902120B9501E0098E71A /* Api.swift in Sources */,
 				24BF902F20B95DAE0098E71A /* AuthorizationApiRoutes.swift in Sources */,
-				24F15FCF20B9CB3A009E00D5 /* AuthorizationCookieStorage.swift in Sources */,
+				24F15FCF20B9CB3A009E00D5 /* DefaultsCookieStorage.swift in Sources */,
 				24BF902420B950400098E71A /* ApiRoutes.swift in Sources */,
 				24BF903120B95FC80098E71A /* OlympusApi.swift in Sources */,
 				24BF901B20B8A7920098E71A /* Result+Api.swift in Sources */,

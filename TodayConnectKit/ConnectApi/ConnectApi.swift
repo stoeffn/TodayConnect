@@ -19,7 +19,7 @@
 
 public final class ConnectApi {
     public static let defaultBaseUrl = URL(string: "https://itunesconnect.apple.com/WebObjects/iTunesConnect.woa/ra/")!
-    public static let defaultCookieStorage = AuthorizationCookieStorage()
+    public static let defaultCookieStorage = DefaultsCookieStorage()
 
     private let api: Api<ConnectApiRoutes>
     private let olympusApi: OlympusApi

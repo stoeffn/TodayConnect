@@ -17,31 +17,44 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-public final class AuthorizationCookieStorage: HTTPCookieStorage {
-    private let defaults = UserDefaults(suiteName: App.groupIdentifier)
-    private let cookiesKey = "cookies"
+public final class DefaultsCookieStorage: HTTPCookieStorage {
+    public static let defaultDefaults = UserDefaults(suiteName: App.groupIdentifier)!
+
+    private let defaultsCookiesKey = "cookies"
+    private let defaults: UserDefaults
+
+    // MARK: - Life Cycle
+
+    public init(defaults: UserDefaults = defaultDefaults) {
+        self.defaults = defaults
+    }
+
+    // MARK: - Merging Cookies
+
+    private func mergedCookies(oldCookies: [HTTPCookie], newCookies: [HTTPCookie]) -> [HTTPCookie] {
+        let cookies = oldCookies + newCookies
+        let mergedCookies = Dictionary(cookies.map { ($0.name, $0) }) { (_, second) in second }
+        return Array(mergedCookies.values)
+    }
+
+    // MARK: - Retrieving Cookies
+
+    private func cookies(from defaults: UserDefaults) -> [HTTPCookie] {
+        guard let rawCookies = defaults.array(forKey: defaultsCookiesKey) as? [[String: Any]] else { return [] }
+        return rawCookies.compactMap(HTTPCookie.init)
+    }
 
     public override func getCookiesFor(_ task: URLSessionTask, completionHandler: @escaping ([HTTPCookie]?) -> Void) {
-        guard let cookiesProperties = defaults?.array(forKey: cookiesKey) as? [[String: Any]] else {
-            return completionHandler(nil)
-        }
+        completionHandler(cookies(from: defaults))
+    }
 
-        let cookies = cookiesProperties.compactMap { properties -> HTTPCookie? in
-            let properties = Dictionary(uniqueKeysWithValues: properties.map { (HTTPCookiePropertyKey(rawValue: $0.key), $0.value) })
-            return HTTPCookie(properties: properties)
-        }
+    // MARK: - Storing Cookies
 
-        completionHandler(cookies)
+    private func store(cookies: [HTTPCookie], to defaults: UserDefaults) {
+        defaults.set(cookies.map { $0.stringProperties }, forKey: defaultsCookiesKey)
     }
 
     public override func storeCookies(_ newCookies: [HTTPCookie], for task: URLSessionTask) {
-        getCookiesFor(task) { oldCookies in
-            let cookies = (oldCookies ?? []) + newCookies
-            let cookiesProperties = cookies.map { cookie in
-                Dictionary(uniqueKeysWithValues: cookie.properties?.map { ($0.key.rawValue, $0.value) } ?? [])
-            }
-
-            self.defaults?.set(cookiesProperties, forKey: self.cookiesKey)
-        }
+        store(cookies: mergedCookies(oldCookies: cookies(from: defaults), newCookies: newCookies), to: defaults)
     }
 }
