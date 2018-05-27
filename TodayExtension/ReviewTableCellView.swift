@@ -33,6 +33,8 @@ final class ReviewTableCellView: NSTableCellView {
 
     @IBOutlet var titleLabel: NSTextField!
 
+    @IBOutlet var dateLabel: NSTextField!
+
     @IBOutlet var reviewLabel: NSTextField!
 
     // MARK: UI Cycle
@@ -41,6 +43,7 @@ final class ReviewTableCellView: NSTableCellView {
         guard let review = review else { return }
 
         titleLabel.stringValue = review.title
+        dateLabel.stringValue = DateFormatter.localizedString(from: review.lastModified, dateStyle: .medium, timeStyle: .none)
         reviewLabel.stringValue = review.review
     }
 }

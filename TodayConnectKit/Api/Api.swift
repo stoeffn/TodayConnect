@@ -82,7 +82,7 @@ class Api<Routes: ApiRoutes> {
             fatalError("Trying to decode response from untyped API route '\(route)'.")
         }
         return request(route) { result in
-            completion(result.decoded(type, decoder: self.jsonDecoder))
+            completion(result.decoded(type, jsonDecoder: self.jsonDecoder))
         }
     }
 }

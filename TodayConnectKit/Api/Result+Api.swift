@@ -36,8 +36,8 @@ extension Result where Value == (value: Data, response: HTTPURLResponse) {
     ///
     /// - Parameters:
     ///     - type: Expected object type.
-    ///     - decoder: JSON decoder to use for decoding.
-    func decoded<Value: Decodable>(_ type: Value.Type, decoder: JSONDecoder = JSONDecoder()) -> ApiResult<Value> {
-        return map { (try decoder.decode(type, from: $0.value), $0.response) }
+    ///     - jsonDecoder: JSON decoder to use for decoding.
+    func decoded<Value: Decodable>(_ type: Value.Type, jsonDecoder: JSONDecoder = JSONDecoder()) -> ApiResult<Value> {
+        return map { (try jsonDecoder.decode(type, from: $0.value), $0.response) }
     }
 }

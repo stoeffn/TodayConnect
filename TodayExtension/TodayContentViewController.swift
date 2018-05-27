@@ -43,7 +43,9 @@ final class TodayContentViewController: NSViewController {
 
     private func updateUI() {
         reviewSummaryViewController?.reviewSummary = reviewSummary
-        reviewsViewController?.reviews = reviews?.reviews.map { $0.value }
+        reviewsViewController?.reviews = reviews?.reviews
+            .prefix(5)
+            .map { $0.value }
     }
 
     // MARK: - Navigation

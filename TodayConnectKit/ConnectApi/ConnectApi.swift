@@ -27,7 +27,7 @@ public final class ConnectApi {
 
     public static let defaultCookieStorage = DefaultsCookieStorage()
 
-    static let defaultJsonDecoder: JSONDecoder = {
+    public static let defaultJsonDecoder: JSONDecoder = {
         let decoder = JSONDecoder()
         decoder.dateDecodingStrategy = .millisecondsSince1970
         return decoder
@@ -40,12 +40,13 @@ public final class ConnectApi {
         self.olympusApi = olympusApi
     }
 
-    public convenience init(baseUrl: URL = defaultBaseUrl, cookieStorage: HTTPCookieStorage = defaultCookieStorage) {
+    public convenience init(baseUrl: URL = defaultBaseUrl, cookieStorage: HTTPCookieStorage = defaultCookieStorage,
+                            jsonDecoder: JSONDecoder = defaultJsonDecoder) {
         let configuration = URLSessionConfiguration.default
         configuration.httpCookieStorage = cookieStorage
         let session = URLSession(configuration: configuration)
 
-        let api = Api<ConnectApiRoutes>(baseUrl: baseUrl, session: session)
+        let api = Api<ConnectApiRoutes>(baseUrl: baseUrl, session: session, jsonDecoder: jsonDecoder)
         self.init(api: api)
     }
 
