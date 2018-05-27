@@ -46,7 +46,7 @@ final class TodayContentViewController: NSViewController {
 
     var reviewCountText: String? {
         guard let reviews = reviews else { return nil }
-        return "\(reviews.reviewCount)"
+        return "\(reviews.reviewCount) reviews"
     }
 
     var detailText: String {
