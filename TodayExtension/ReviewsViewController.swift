@@ -18,45 +18,12 @@
 //
 
 import Cocoa
-import TodayConnectKit
 
-final class TodayContentViewController: NSViewController {
+final class ReviewsViewController: NSViewController {
+
     // MARK: - User Interface
 
-    // MARK: Properties
+    // MARK: Views
 
-    var reviewSummary: ReviewSummary? {
-        didSet { updateUI() }
-    }
-
-    // MARK: Child Controllers
-
-    private var reviewSummaryViewController: ReviewSummaryViewController?
-
-    private var reviewsViewController: ReviewsViewController?
-
-    // MARK: UI Cycle
-
-    private func updateUI() {
-        reviewSummaryViewController?.reviewSummary = reviewSummary
-    }
-
-    // MARK: - Navigation
-
-    enum Segues: String {
-        case reviewSummary, reviews
-    }
-
-    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
-        guard let identifier = segue.identifier?.rawValue else { return }
-
-        switch Segues(rawValue: identifier) {
-        case .reviewSummary?:
-            reviewSummaryViewController = segue.destinationController as? ReviewSummaryViewController
-        case .reviews?:
-            reviewsViewController = segue.destinationController as? ReviewsViewController
-        case nil:
-            break
-        }
-    }
+    @IBOutlet var tableView: NSScrollView!
 }
