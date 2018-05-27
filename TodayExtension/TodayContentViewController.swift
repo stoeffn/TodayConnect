@@ -33,19 +33,40 @@ final class TodayContentViewController: NSViewController {
         didSet { updateUI() }
     }
 
+    var isCollapsed: Bool = true {
+        didSet { updateUI() }
+    }
+
     // MARK: Child Controllers
 
     private var reviewSummaryViewController: ReviewSummaryViewController?
 
     private var reviewsViewController: ReviewsViewController?
 
+    // MARK: Views
+
+    @IBOutlet var reviewsView: NSView!
+
+    @IBOutlet var collapseExpandButton: NSButton!
+
     // MARK: UI Cycle
 
     private func updateUI() {
         reviewSummaryViewController?.reviewSummary = reviewSummary
+
+        reviewsView.isHidden = isCollapsed
         reviewsViewController?.reviews = reviews?.reviews
             .prefix(5)
             .map { $0.value }
+
+        collapseExpandButton.title = isCollapsed ? "Show More…" : "Show Less…"
+    }
+
+    // MARK: - User Interaction
+
+    @IBAction
+    func collapseExpandButtonClicked(_ sender: Any) {
+        isCollapsed = !isCollapsed
     }
 
     // MARK: - Navigation

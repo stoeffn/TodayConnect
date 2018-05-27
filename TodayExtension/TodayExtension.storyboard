@@ -14,14 +14,14 @@
             <objects>
                 <viewController id="6Ym-BR-SBS" customClass="TodayContentViewController" customModule="TodayExtension" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="36E-DW-oIL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="319"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="329"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <stackView distribution="fill" orientation="vertical" alignment="leading" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S2x-ot-b2a">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="319"/>
+                            <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S2x-ot-b2a">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="329"/>
                                 <subviews>
                                     <containerView translatesAutoresizingMaskIntoConstraints="NO" id="l4p-Rx-g34">
-                                        <rect key="frame" x="0.0" y="264" width="320" height="55"/>
+                                        <rect key="frame" x="0.0" y="274" width="320" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="ZCx-hd-9mb"/>
                                         </constraints>
@@ -30,17 +30,20 @@
                                         </connections>
                                     </containerView>
                                     <containerView translatesAutoresizingMaskIntoConstraints="NO" id="mVC-KI-q6Y">
-                                        <rect key="frame" x="0.0" y="26" width="320" height="230"/>
+                                        <rect key="frame" x="0.0" y="30" width="320" height="232"/>
                                         <connections>
                                             <segue destination="y7E-xZ-C37" kind="embed" identifier="reviews" id="Uhi-vG-9L8"/>
                                         </connections>
                                     </containerView>
-                                    <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0CN-74-zWh">
+                                    <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0CN-74-zWh">
                                         <rect key="frame" x="0.0" y="-1" width="92" height="19"/>
-                                        <buttonCell key="cell" type="recessed" title="Show More…" bezelStyle="recessed" image="buttonCell:EiU-Ru-zCq:image" imagePosition="overlaps" borderStyle="border" inset="2" id="EiU-Ru-zCq">
-                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES" changeBackground="YES" changeGray="YES"/>
+                                        <buttonCell key="cell" type="recessed" title="Show More…" bezelStyle="recessed" image="buttonCell:EiU-Ru-zCq:image" imagePosition="overlaps" borderStyle="border" focusRingType="none" inset="2" id="EiU-Ru-zCq">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                             <font key="font" metaFont="systemBold" size="12"/>
                                         </buttonCell>
+                                        <connections>
+                                            <action selector="collapseExpandButtonClicked:" target="6Ym-BR-SBS" id="2zF-bQ-Z3m"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <visibilityPriorities>
@@ -62,10 +65,14 @@
                             <constraint firstAttribute="trailing" secondItem="S2x-ot-b2a" secondAttribute="trailing" id="lmu-7Y-9SC"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="collapseExpandButton" destination="0CN-74-zWh" id="Vd2-Cv-GyB"/>
+                        <outlet property="reviewsView" destination="mVC-KI-q6Y" id="qc7-E3-Jn5"/>
+                    </connections>
                 </viewController>
                 <customObject id="35i-ct-cDS" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="38" y="-205"/>
+            <point key="canvasLocation" x="38" y="-200"/>
         </scene>
         <!--Review Summary View Controller-->
         <scene sceneID="BEY-cw-3X1">
@@ -631,7 +638,7 @@
                 </viewController>
                 <customObject id="FNP-4g-Gnt" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="503" y="-180"/>
+            <point key="canvasLocation" x="503" y="-176"/>
         </scene>
     </scenes>
     <resources>
