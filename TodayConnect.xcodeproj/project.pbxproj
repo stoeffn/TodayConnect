@@ -19,6 +19,7 @@
 		24677D6320BADA9D00F4D530 /* ReviewList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24677D6220BADA9D00F4D530 /* ReviewList.swift */; };
 		24677D6520BAEE4B00F4D530 /* ReviewTableCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24677D6420BAEE4B00F4D530 /* ReviewTableCellView.swift */; };
 		24A11E7720B9F0D900C157EB /* TodayConnectKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24BF8FF420B8999F0098E71A /* TodayConnectKit.framework */; };
+		24B4D7E320BB2D3100802506 /* ReviewDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24B4D7E220BB2D3100802506 /* ReviewDetailViewController.swift */; };
 		24BF8F9E20B888AA0098E71A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF8F9D20B888AA0098E71A /* AppDelegate.swift */; };
 		24BF8FA020B888AA0098E71A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF8F9F20B888AA0098E71A /* ViewController.swift */; };
 		24BF8FA220B888AB0098E71A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 24BF8FA120B888AB0098E71A /* Assets.xcassets */; };
@@ -137,6 +138,7 @@
 		24677D6020BADA5800F4D530 /* ItemContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemContainer.swift; sourceTree = "<group>"; };
 		24677D6220BADA9D00F4D530 /* ReviewList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewList.swift; sourceTree = "<group>"; };
 		24677D6420BAEE4B00F4D530 /* ReviewTableCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewTableCellView.swift; sourceTree = "<group>"; };
+		24B4D7E220BB2D3100802506 /* ReviewDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewDetailViewController.swift; sourceTree = "<group>"; };
 		24BF8F9A20B888AA0098E71A /* TodayConnect.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TodayConnect.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		24BF8F9D20B888AA0098E71A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		24BF8F9F20B888AA0098E71A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 				24677D3820BABA5000F4D530 /* TodayExtension.storyboard */,
 				24BF8FDF20B88C3B0098E71A /* Info.plist */,
 				24BF8FE320B88C3B0098E71A /* TodayExtension.entitlements */,
+				24B4D7E220BB2D3100802506 /* ReviewDetailViewController.swift */,
 			);
 			path = TodayExtension;
 			sourceTree = "<group>";
@@ -711,6 +714,7 @@
 				24677D6520BAEE4B00F4D530 /* ReviewTableCellView.swift in Sources */,
 				2421B59720BB0DFB00A7155A /* RatingStarView.swift in Sources */,
 				24677D3220BAB66900F4D530 /* ReviewSummaryViewController.swift in Sources */,
+				24B4D7E320BB2D3100802506 /* ReviewDetailViewController.swift in Sources */,
 				24F15FCD20B9C717009E00D5 /* RatingBarView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

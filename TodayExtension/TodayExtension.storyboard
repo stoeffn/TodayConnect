@@ -14,14 +14,14 @@
             <objects>
                 <viewController id="6Ym-BR-SBS" customClass="TodayContentViewController" customModule="TodayExtension" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="36E-DW-oIL">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="445"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="607"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <stackView distribution="fill" orientation="vertical" alignment="leading" spacing="12" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="S2x-ot-b2a">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="445"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="607"/>
                                 <subviews>
                                     <containerView translatesAutoresizingMaskIntoConstraints="NO" id="l4p-Rx-g34">
-                                        <rect key="frame" x="0.0" y="390" width="320" height="55"/>
+                                        <rect key="frame" x="0.0" y="552" width="320" height="55"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="ZCx-hd-9mb"/>
                                         </constraints>
@@ -30,42 +30,25 @@
                                         </connections>
                                     </containerView>
                                     <containerView translatesAutoresizingMaskIntoConstraints="NO" id="mVC-KI-q6Y">
-                                        <rect key="frame" x="0.0" y="34" width="320" height="344"/>
+                                        <rect key="frame" x="0.0" y="30" width="320" height="510"/>
                                         <connections>
                                             <segue destination="y7E-xZ-C37" kind="embed" identifier="reviews" id="Uhi-vG-9L8"/>
                                         </connections>
                                     </containerView>
-                                    <customView translatesAutoresizingMaskIntoConstraints="NO" id="oFN-XF-xxm">
-                                        <rect key="frame" x="0.0" y="0.0" width="320" height="22"/>
-                                        <subviews>
-                                            <button focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="0CN-74-zWh">
-                                                <rect key="frame" x="0.0" y="1" width="92" height="19"/>
-                                                <buttonCell key="cell" type="recessed" title="Show More…" bezelStyle="recessed" image="buttonCell:EiU-Ru-zCq:image" imagePosition="overlaps" borderStyle="border" focusRingType="none" inset="2" id="EiU-Ru-zCq">
-                                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                                    <font key="font" metaFont="systemBold" size="12"/>
-                                                </buttonCell>
-                                                <connections>
-                                                    <action selector="collapseExpandButtonClicked:" target="6Ym-BR-SBS" id="2zF-bQ-Z3m"/>
-                                                </connections>
-                                            </button>
-                                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="SCL-ai-eWc">
-                                                <rect key="frame" x="190" y="4" width="120" height="14"/>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="8 reviews • 64 ratings" id="9Of-YB-FBO">
-                                                    <font key="font" metaFont="smallSystem"/>
-                                                    <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
-                                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
-                                                </textFieldCell>
-                                            </textField>
-                                        </subviews>
+                                    <containerView translatesAutoresizingMaskIntoConstraints="NO" id="qha-DX-bhP">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="18"/>
                                         <constraints>
-                                            <constraint firstItem="0CN-74-zWh" firstAttribute="baseline" secondItem="SCL-ai-eWc" secondAttribute="baseline" id="ARY-yn-INi"/>
-                                            <constraint firstItem="0CN-74-zWh" firstAttribute="leading" secondItem="oFN-XF-xxm" secondAttribute="leading" id="M1b-BK-sEi"/>
-                                            <constraint firstItem="0CN-74-zWh" firstAttribute="centerY" secondItem="oFN-XF-xxm" secondAttribute="centerY" id="gPA-JF-v8S"/>
-                                            <constraint firstAttribute="trailing" secondItem="SCL-ai-eWc" secondAttribute="trailing" constant="12" id="pO3-tM-SJu"/>
-                                            <constraint firstAttribute="height" constant="22" id="q3e-D7-gCL"/>
+                                            <constraint firstAttribute="height" constant="18" id="CDR-WN-v85"/>
                                         </constraints>
-                                    </customView>
+                                        <connections>
+                                            <segue destination="lOo-DK-tVd" kind="embed" identifier="reviewDetail" id="rb7-Cf-Sqp"/>
+                                        </connections>
+                                    </containerView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="qha-DX-bhP" secondAttribute="trailing" id="5UD-1x-s5P"/>
+                                    <constraint firstItem="qha-DX-bhP" firstAttribute="leading" secondItem="S2x-ot-b2a" secondAttribute="leading" id="PcY-S7-XTv"/>
+                                </constraints>
                                 <visibilityPriorities>
                                     <integer value="1000"/>
                                     <integer value="1000"/>
@@ -86,8 +69,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="collapseExpandButton" destination="0CN-74-zWh" id="Vd2-Cv-GyB"/>
-                        <outlet property="detailLabel" destination="SCL-ai-eWc" id="zUP-l2-IUs"/>
                         <outlet property="reviewsView" destination="mVC-KI-q6Y" id="qc7-E3-Jn5"/>
                     </connections>
                 </viewController>
@@ -661,10 +642,66 @@
             </objects>
             <point key="canvasLocation" x="510" y="-202"/>
         </scene>
+        <!--Review Detail View Controller-->
+        <scene sceneID="rGB-j4-T80">
+            <objects>
+                <viewController id="lOo-DK-tVd" customClass="ReviewDetailViewController" customModule="TodayExtension" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" id="3au-Rc-z8d">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="18"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <subviews>
+                            <stackView distribution="fill" orientation="horizontal" alignment="centerY" horizontalStackHuggingPriority="249.99998474121094" verticalStackHuggingPriority="249.99998474121094" detachesHiddenViews="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oyy-dl-EG7">
+                                <rect key="frame" x="0.0" y="0.0" width="308" height="18"/>
+                                <subviews>
+                                    <button focusRingType="none" horizontalHuggingPriority="750" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="1Ou-TG-qIb">
+                                        <rect key="frame" x="0.0" y="-1" width="92" height="19"/>
+                                        <buttonCell key="cell" type="recessed" title="Show More…" bezelStyle="recessed" image="buttonCell:hkH-cO-P7e:image" imagePosition="overlaps" borderStyle="border" focusRingType="none" inset="2" id="hkH-cO-P7e">
+                                            <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                            <font key="font" metaFont="systemBold" size="12"/>
+                                        </buttonCell>
+                                        <connections>
+                                            <action selector="collapseExpandButtonClicked:" target="lOo-DK-tVd" id="uNf-Q5-48d"/>
+                                        </connections>
+                                    </button>
+                                    <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" alphaValue="0.59999999999999998" translatesAutoresizingMaskIntoConstraints="NO" id="EEY-1P-nG4">
+                                        <rect key="frame" x="98" y="2" width="212" height="14"/>
+                                        <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="right" title="8 reviews • 64 ratings" id="x6r-Q7-5PQ">
+                                            <font key="font" metaFont="smallSystem"/>
+                                            <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                            <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                        </textFieldCell>
+                                    </textField>
+                                </subviews>
+                                <visibilityPriorities>
+                                    <integer value="1000"/>
+                                    <integer value="1000"/>
+                                </visibilityPriorities>
+                                <customSpacing>
+                                    <real value="3.4028234663852886e+38"/>
+                                    <real value="3.4028234663852886e+38"/>
+                                </customSpacing>
+                            </stackView>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="oyy-dl-EG7" secondAttribute="trailing" constant="12" id="FOb-48-5nT"/>
+                            <constraint firstAttribute="bottom" secondItem="oyy-dl-EG7" secondAttribute="bottom" id="a7D-WS-mMm"/>
+                            <constraint firstItem="oyy-dl-EG7" firstAttribute="top" secondItem="3au-Rc-z8d" secondAttribute="top" id="bCT-mR-m0P"/>
+                            <constraint firstItem="oyy-dl-EG7" firstAttribute="leading" secondItem="3au-Rc-z8d" secondAttribute="leading" id="xzY-oJ-Blj"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collapseExpandButton" destination="1Ou-TG-qIb" id="s3b-hv-e9V"/>
+                        <outlet property="detailLabel" destination="EEY-1P-nG4" id="3t5-DF-zUw"/>
+                    </connections>
+                </viewController>
+                <customObject id="GHo-VH-UqS" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="510" y="93"/>
+        </scene>
     </scenes>
     <resources>
         <image name="StarGlyph" width="16" height="16"/>
-        <image name="buttonCell:EiU-Ru-zCq:image" width="1" height="1">
+        <image name="buttonCell:hkH-cO-P7e:image" width="1" height="1">
             <mutableData key="keyedArchiveRepresentation">
 YnBsaXN0MDDUAQIDBAUGVVZYJHZlcnNpb25YJG9iamVjdHNZJGFyY2hpdmVyVCR0b3ASAAGGoK8QEgcI
 ExQZHh8jJCsuMTtDR0tPUlUkbnVsbNUJCgsMDQ4PEBESVk5TU2l6ZVYkY2xhc3NcTlNJbWFnZUZsYWdz

@@ -21,6 +21,14 @@ import Cocoa
 import TodayConnectKit
 
 final class TodayContentViewController: NSViewController {
+    private var reviewDetailViewControllerObservations: [NSKeyValueObservation] = []
+
+    // MARK: - Life Cycle
+
+    deinit {
+        reviewDetailViewControllerObservations = []
+    }
+
     // MARK: - User Interface
 
     // MARK: Properties
@@ -37,35 +45,19 @@ final class TodayContentViewController: NSViewController {
         didSet { updateUI() }
     }
 
-    // MARK: Texts
-
-    var ratingCountText: String? {
-        guard let reviewSummary = reviewSummary else { return nil }
-        return "\(reviewSummary.ratingCount) ratings"
-    }
-
-    var reviewCountText: String? {
-        guard let reviews = reviews else { return nil }
-        return "\(reviews.reviewCount) reviews"
-    }
-
-    var detailText: String {
-        return [ratingCountText, reviewCountText].compactMap { $0 }.joined(separator: " • ")
-    }
-
     // MARK: Child Controllers
 
-    private var reviewSummaryViewController: ReviewSummaryViewController?
+    private var reviewSummaryViewController: ReviewSummaryViewController!
 
-    private var reviewsViewController: ReviewsViewController?
+    private var reviewsViewController: ReviewsViewController!
+
+    private var reviewDetailViewController: ReviewDetailViewController! {
+        didSet { bindReviewDetailViewController() }
+    }
 
     // MARK: Views
 
     @IBOutlet var reviewsView: NSView!
-
-    @IBOutlet var detailLabel: NSTextField!
-
-    @IBOutlet var collapseExpandButton: NSButton!
 
     // MARK: UI Cycle
 
@@ -77,22 +69,22 @@ final class TodayContentViewController: NSViewController {
             .prefix(5)
             .map { $0.value }
 
-        collapseExpandButton.title = isCollapsed ? "Show More…" : "Show Less…"
-        detailLabel.isHidden = isCollapsed
-        detailLabel.stringValue = detailText
+        reviewDetailViewController.reviewSummary = reviewSummary
+        reviewDetailViewController.reviews = reviews
     }
 
-    // MARK: - User Interaction
-
-    @IBAction
-    func collapseExpandButtonClicked(_ sender: Any) {
-        isCollapsed = !isCollapsed
+    private func bindReviewDetailViewController() {
+        reviewDetailViewControllerObservations = [
+            reviewDetailViewController.observe(\.isCollapsed) { [unowned self] (_, _) in
+                self.isCollapsed = self.reviewDetailViewController.isCollapsed
+            },
+        ]
     }
 
     // MARK: - Navigation
 
     enum Segues: String {
-        case reviewSummary, reviews
+        case reviewSummary, reviews, reviewDetail
     }
 
     override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
@@ -103,6 +95,8 @@ final class TodayContentViewController: NSViewController {
             reviewSummaryViewController = segue.destinationController as? ReviewSummaryViewController
         case .reviews?:
             reviewsViewController = segue.destinationController as? ReviewsViewController
+        case .reviewDetail?:
+            reviewDetailViewController = segue.destinationController as? ReviewDetailViewController
         case nil:
             break
         }
