@@ -18,25 +18,37 @@
 //
 
 enum ConnectApiRoutes: ApiRoutes {
+    case reviews(appId: String, platform: Platforms, sorting: ReviewList.Sorting, countryCode: String?)
+
     case reviewSummary(appId: String, platform: Platforms, countryCode: String?)
 
     var path: String {
         switch self {
+        case let .reviews(appId, platform, _, _):
+            return "apps/\(appId)/platforms/\(platform.rawValue)/reviews"
         case let .reviewSummary(appId, platform, _):
-            return "apps/\(appId)/platforms/\(platform)/reviews/summary"
+            return "apps/\(appId)/platforms/\(platform.rawValue)/reviews/summary"
         }
     }
 
     var parameters: [URLQueryItem] {
         switch self {
+        case let .reviews(_, _, sorting, countryCode):
+            return [
+                URLQueryItem(name: "sort", value: sorting.rawValue),
+                URLQueryItem(name: "storefront", value: countryCode),
+            ]
         case let .reviewSummary(_, _, countryCode):
-            guard let countryCode = countryCode else { return [] }
-            return [URLQueryItem(name: "storefront", value: countryCode)]
+            return [
+                URLQueryItem(name: "storefront", value: countryCode),
+            ]
         }
     }
 
     var responseType: Decodable.Type? {
         switch self {
+        case .reviews:
+            return ConnectResponse<ReviewList>.self
         case .reviewSummary:
             return ConnectResponse<ReviewSummary>.self
         }

@@ -56,6 +56,15 @@ public final class ConnectApi {
     // MARK: - Reviews
 
     @discardableResult
+    public func reviews(forAppId appId: String, platform: Platforms, sorting: ReviewList.Sorting = .mostRecent,
+                        countryCode: String? = nil, completion: @escaping ResultHandler<ReviewList>) -> URLSessionTask {
+        let route = ConnectApiRoutes.reviews(appId: appId, platform: platform, sorting: sorting, countryCode: countryCode)
+        return api.request(route) { (result: ApiResult<ConnectResponse<ReviewList>>) in
+            completion(result.map { $0.value.data })
+        }
+    }
+
+    @discardableResult
     public func reviewSummary(forAppId appId: String, platform: Platforms, countryCode: String? = nil,
                               completion: @escaping ResultHandler<ReviewSummary>) -> URLSessionTask {
         let route = ConnectApiRoutes.reviewSummary(appId: appId, platform: platform, countryCode: countryCode)

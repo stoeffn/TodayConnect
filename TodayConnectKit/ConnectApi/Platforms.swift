@@ -18,5 +18,8 @@
 //
 
 public enum Platforms: String, Codable {
-    case iOS, macOS, watchOS, tvOS
+    case iOS = "ios"
+    case macOS = "macos"
+    case watchOS = "watchos"
+    case tvOS = "tvos"
 }
