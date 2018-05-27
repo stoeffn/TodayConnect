@@ -78,10 +78,10 @@ final class TodayViewController: NSViewController {
         contentViewController.isExpanded = UserDefaults.standard.bool(forKey: TodayViewController.defaultsExpandedKey)
 
         contentViewControllerObservations = [
-            contentViewController.observe(\.isExpanded, options: [.old, .new]) { [unowned self] (_, change) in
+            contentViewController.observe(\.isExpanded, options: [.old, .new]) { [unowned self] _, change in
                 guard change.newValue != change.oldValue else { return }
                 UserDefaults.standard.set(self.contentViewController.isExpanded, forKey: TodayViewController.defaultsExpandedKey)
-            }
+            },
         ]
     }
 

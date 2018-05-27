@@ -35,7 +35,7 @@ public final class DefaultsCookieStorage: HTTPCookieStorage {
 
     private func mergedCookies(oldCookies: [HTTPCookie], newCookies: [HTTPCookie]) -> [HTTPCookie] {
         let cookies = oldCookies + newCookies
-        let mergedCookies = Dictionary(cookies.map { ($0.name, $0) }) { (_, second) in second }
+        let mergedCookies = Dictionary(cookies.map { ($0.name, $0) }) { _, second in second }
         return Array(mergedCookies.values)
     }
 
@@ -46,7 +46,7 @@ public final class DefaultsCookieStorage: HTTPCookieStorage {
         return rawCookies.compactMap(HTTPCookie.init)
     }
 
-    public override func getCookiesFor(_ task: URLSessionTask, completionHandler: @escaping ([HTTPCookie]?) -> Void) {
+    public override func getCookiesFor(_: URLSessionTask, completionHandler: @escaping ([HTTPCookie]?) -> Void) {
         completionHandler(cookies(from: defaults))
     }
 
@@ -56,7 +56,7 @@ public final class DefaultsCookieStorage: HTTPCookieStorage {
         defaults.set(cookies.map { $0.stringProperties }, forKey: defaultsCookiesKey)
     }
 
-    public override func storeCookies(_ newCookies: [HTTPCookie], for task: URLSessionTask) {
+    public override func storeCookies(_ newCookies: [HTTPCookie], for _: URLSessionTask) {
         store(cookies: mergedCookies(oldCookies: cookies(from: defaults), newCookies: newCookies), to: defaults)
     }
 }

@@ -21,6 +21,7 @@ import Cocoa
 import TodayConnectKit
 
 final class ReviewTableCellView: NSTableCellView {
+
     // MARK: - User Interface
 
     // MARK: Properties

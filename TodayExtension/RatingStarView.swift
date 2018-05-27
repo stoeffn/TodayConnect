@@ -54,7 +54,7 @@ final class RatingStarView: NSView {
     }()
 
     private lazy var starImageViews: [NSImageView] = {
-        return (0 ..< 5).map { _ in
+        (0 ..< 5).map { _ in
             let imageView = NSImageView(image: #imageLiteral(resourceName: "StarGlyph"))
             imageView.translatesAutoresizingMaskIntoConstraints = false
             imageView.widthAnchor.constraint(equalTo: imageView.heightAnchor, multiplier: 1).isActive = true

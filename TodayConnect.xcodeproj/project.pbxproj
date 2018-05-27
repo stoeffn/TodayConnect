@@ -30,7 +30,6 @@
 		24BF8FDB20B88C3B0098E71A /* TodayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF8FDA20B88C3B0098E71A /* TodayViewController.swift */; };
 		24BF8FE620B88C3B0098E71A /* TodayExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 24BF8FD520B88C3B0098E71A /* TodayExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
 		24BF8FFD20B8999F0098E71A /* TodayConnectKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24BF8FF420B8999F0098E71A /* TodayConnectKit.framework */; };
-		24BF900420B8999F0098E71A /* TodayConnectKitTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24BF900320B8999F0098E71A /* TodayConnectKitTests.swift */; };
 		24BF900620B8999F0098E71A /* TodayConnectKit.h in Headers */ = {isa = PBXBuildFile; fileRef = 24BF8FF620B8999F0098E71A /* TodayConnectKit.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		24BF900920B8999F0098E71A /* TodayConnectKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 24BF8FF420B8999F0098E71A /* TodayConnectKit.framework */; };
 		24BF900A20B8999F0098E71A /* TodayConnectKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 24BF8FF420B8999F0098E71A /* TodayConnectKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -162,7 +161,6 @@
 		24BF8FF620B8999F0098E71A /* TodayConnectKit.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TodayConnectKit.h; sourceTree = "<group>"; };
 		24BF8FF720B8999F0098E71A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24BF8FFC20B8999F0098E71A /* TodayConnectKitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = TodayConnectKitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		24BF900320B8999F0098E71A /* TodayConnectKitTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodayConnectKitTests.swift; sourceTree = "<group>"; };
 		24BF900520B8999F0098E71A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		24BF901220B89A200098E71A /* ConnectApi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectApi.swift; sourceTree = "<group>"; };
 		24BF901420B89B0D0098E71A /* Result.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Result.swift; sourceTree = "<group>"; };
@@ -368,7 +366,6 @@
 		24BF900220B8999F0098E71A /* TodayConnectKitTests */ = {
 			isa = PBXGroup;
 			children = (
-				24BF900320B8999F0098E71A /* TodayConnectKitTests.swift */,
 				24BF900520B8999F0098E71A /* Info.plist */,
 			);
 			path = TodayConnectKitTests;
@@ -757,7 +754,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				24BF900420B8999F0098E71A /* TodayConnectKitTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

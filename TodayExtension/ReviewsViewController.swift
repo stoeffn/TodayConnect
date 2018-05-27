@@ -67,11 +67,11 @@ final class ReviewsViewController: NSViewController {
 // MARK: - Table View Data Source and Delegate
 
 extension ReviewsViewController: NSTableViewDataSource, NSTableViewDelegate {
-    func numberOfRows(in tableView: NSTableView) -> Int {
+    func numberOfRows(in _: NSTableView) -> Int {
         return reviews?.count ?? 0
     }
 
-    func tableView(_ tableView: NSTableView, viewFor tableColumn: NSTableColumn?, row: Int) -> NSView? {
+    func tableView(_ tableView: NSTableView, viewFor _: NSTableColumn?, row: Int) -> NSView? {
         let identifier = NSUserInterfaceItemIdentifier(rawValue: String(describing: ReviewTableCellView.self))
         guard let cell = tableView.makeView(withIdentifier: identifier, owner: nil) as? ReviewTableCellView else { fatalError() }
         cell.review = reviews?[row]

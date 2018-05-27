@@ -21,6 +21,7 @@ import Cocoa
 import TodayConnectKit
 
 final class ReviewDetailViewController: NSViewController {
+
     // MARK: - User Interface
 
     // MARK: Properties
@@ -70,7 +71,7 @@ final class ReviewDetailViewController: NSViewController {
     // MARK: - User Interaction
 
     @IBAction
-    func collapseExpandButtonClicked(_ sender: Any) {
+    func collapseExpandButtonClicked(_: Any) {
         isExpanded = !isExpanded
     }
 }

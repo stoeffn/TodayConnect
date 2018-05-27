@@ -44,7 +44,7 @@ enum AuthorizationApiRoutes: ApiRoutes {
         }
     }
 
-    var headers: [String : String] {
+    var headers: [String: String] {
         switch self {
         case .logIn:
             return [:]
@@ -52,7 +52,7 @@ enum AuthorizationApiRoutes: ApiRoutes {
              let .trustClient(sessionId, scnt):
             return [
                 "X-Apple-Id-Session-Id": sessionId,
-                "scnt": scnt
+                "scnt": scnt,
             ]
         }
     }

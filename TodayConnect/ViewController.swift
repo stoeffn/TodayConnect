@@ -40,12 +40,12 @@ final class ViewController: NSViewController {
     }
 
     @IBAction
-    func logIn(_ sender: Any) {
+    func logIn(_: Any) {
         authorizationApi?.logIn(email: emailTextField.stringValue, password: passwordTextfield.stringValue) { print($0) }
     }
 
     @IBAction
-    func verifyDevice(_ sender: Any) {
+    func verifyDevice(_: Any) {
         authorizationApi?.verifySecurityCode(code: securityCodeTextField.stringValue) { result in
             print(result)
 
@@ -56,7 +56,7 @@ final class ViewController: NSViewController {
     }
 
     @IBAction
-    func test(_ sender: Any) {
+    func test(_: Any) {
         api.reviewSummary(forAppId: "1317593772", platform: .iOS, countryCode: "DE") { result in
             print(result)
         }

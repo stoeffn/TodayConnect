@@ -74,7 +74,7 @@ final class TodayContentViewController: NSViewController {
 
     private func bindReviewDetailViewController() {
         reviewDetailViewControllerObservations = [
-            reviewDetailViewController.observe(\.isExpanded, options: [.old, .new]) { [unowned self] (_, change) in
+            reviewDetailViewController.observe(\.isExpanded, options: [.old, .new]) { [unowned self] _, change in
                 guard change.newValue != change.oldValue else { return }
                 self.isExpanded = self.reviewDetailViewController.isExpanded
             },
@@ -87,7 +87,7 @@ final class TodayContentViewController: NSViewController {
         case reviewSummary, reviews, reviewDetail
     }
 
-    override func prepare(for segue: NSStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: NSStoryboardSegue, sender _: Any?) {
         guard let identifier = segue.identifier?.rawValue else { return }
 
         switch Segues(rawValue: identifier) {

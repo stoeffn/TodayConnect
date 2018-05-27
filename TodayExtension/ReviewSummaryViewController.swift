@@ -21,6 +21,7 @@ import Cocoa
 import TodayConnectKit
 
 final class ReviewSummaryViewController: NSViewController {
+
     // MARK: - Life Cycle
 
     override func viewDidLoad() {

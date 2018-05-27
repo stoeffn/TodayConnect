@@ -44,7 +44,7 @@ public final class AuthorizationApi {
             "Accept": "application/json, text/javascript",
             "Content-Type": "application/json",
             "X-Requested-With": "XMLHttpRequest",
-            "X-Apple-Widget-Key": appConfig.authServiceKey
+            "X-Apple-Widget-Key": appConfig.authServiceKey,
         ]
         return configuration
     }
