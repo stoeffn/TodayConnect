@@ -18,8 +18,17 @@
 //
 
 import NotificationCenter
+import TodayConnectKit
 
 extension TodayViewController: NCWidgetProviding {
+    var appId: String {
+        return App.userDefaults.string(forKey: App.UserDefaultsKeys.appId.rawValue) ?? ""
+    }
+
+    var countryCode: String? {
+        return App.userDefaults.string(forKey: App.UserDefaultsKeys.countryCode.rawValue)
+    }
+
     func widgetPerformUpdate(completionHandler completion: @escaping (NCUpdateResult) -> Void) {
         let group = DispatchGroup()
         var results: [NCUpdateResult] = []
@@ -51,7 +60,7 @@ extension TodayViewController: NCWidgetProviding {
     }
 
     func updateReviewSummary(completion: @escaping (NCUpdateResult) -> Void) {
-        api.reviewSummary(forAppId: appId, platform: platform) { result in
+        api.reviewSummary(forAppId: appId, platform: platform, countryCode: countryCode) { result in
             switch result {
             case let .success(reviewSummary) where reviewSummary != self.reviewSummary:
                 DispatchQueue.main.async { self.reviewSummary = reviewSummary }
@@ -65,7 +74,7 @@ extension TodayViewController: NCWidgetProviding {
     }
 
     func updateReviews(completion: @escaping (NCUpdateResult) -> Void) {
-        api.reviews(forAppId: appId, platform: platform) { result in
+        api.reviews(forAppId: appId, platform: platform, countryCode: countryCode) { result in
             switch result {
             case let .success(reviews) where reviews != self.reviews:
                 DispatchQueue.main.async { self.reviews = reviews }

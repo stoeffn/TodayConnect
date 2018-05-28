@@ -17,12 +17,8 @@
 //  ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 //
 
-public enum App {
-    public enum UserDefaultsKeys: String {
-        case appId, countryCode, isExpanded, cookies
+public extension String {
+    var nilWhenEmpty: String? {
+        return isEmpty ? nil : self
     }
-
-    public static let groupIdentifier = "group.SteffenRyll.TodayConnect"
-
-    public static let userDefaults = UserDefaults(suiteName: groupIdentifier)!
 }

@@ -32,8 +32,16 @@ final class ViewController: NSViewController {
 
     @IBOutlet var verifyButton: NSButton!
 
+    @IBOutlet var appIdTextField: NSTextField!
+
+    @IBOutlet var countryCodeTextField: NSTextField!
+
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        appIdTextField.stringValue = App.userDefaults.string(forKey: App.UserDefaultsKeys.appId.rawValue) ?? ""
+        countryCodeTextField.stringValue = App.userDefaults.string(forKey: App.UserDefaultsKeys.countryCode.rawValue) ?? ""
+
         api.authorizationApi { self.authorizationApi = $0.value }
     }
 
@@ -90,5 +98,11 @@ final class ViewController: NSViewController {
                 alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
             }
         }
+    }
+
+    @IBAction
+    func updateSettings(_: Any) {
+        App.userDefaults.set(appIdTextField.stringValue.nilWhenEmpty, forKey: App.UserDefaultsKeys.appId.rawValue)
+        App.userDefaults.set(countryCodeTextField.stringValue.nilWhenEmpty, forKey: App.UserDefaultsKeys.countryCode.rawValue)
     }
 }

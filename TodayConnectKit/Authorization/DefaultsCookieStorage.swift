@@ -18,16 +18,11 @@
 //
 
 public final class DefaultsCookieStorage: HTTPCookieStorage {
-    private let defaultsCookiesKey = "cookies"
     private let defaults: UserDefaults
-
-    // MARK: - Defaults
-
-    public static let defaultDefaults = UserDefaults(suiteName: App.groupIdentifier)!
 
     // MARK: - Life Cycle
 
-    public init(defaults: UserDefaults = defaultDefaults) {
+    public init(defaults: UserDefaults = App.userDefaults) {
         self.defaults = defaults
     }
 
@@ -42,7 +37,7 @@ public final class DefaultsCookieStorage: HTTPCookieStorage {
     // MARK: - Retrieving Cookies
 
     private func cookies(from defaults: UserDefaults) -> [HTTPCookie] {
-        guard let rawCookies = defaults.array(forKey: defaultsCookiesKey) as? [[String: Any]] else { return [] }
+        guard let rawCookies = defaults.array(forKey: App.UserDefaultsKeys.cookies.rawValue) as? [[String: Any]] else { return [] }
         return rawCookies.compactMap(HTTPCookie.init)
     }
 
@@ -53,7 +48,7 @@ public final class DefaultsCookieStorage: HTTPCookieStorage {
     // MARK: - Storing Cookies
 
     private func store(cookies: [HTTPCookie], to defaults: UserDefaults) {
-        defaults.set(cookies.map { $0.stringProperties }, forKey: defaultsCookiesKey)
+        defaults.set(cookies.map { $0.stringProperties }, forKey: App.UserDefaultsKeys.cookies.rawValue)
     }
 
     public override func storeCookies(_ newCookies: [HTTPCookie], for _: URLSessionTask) {

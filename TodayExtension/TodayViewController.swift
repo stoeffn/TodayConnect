@@ -21,11 +21,8 @@ import Cocoa
 import TodayConnectKit
 
 final class TodayViewController: NSViewController {
-    private static let defaultsExpandedKey = "isExpanded"
-
     private var contentViewControllerObservations: [NSKeyValueObservation] = []
     let api = ConnectApi()
-    let appId = "1317593772"
     let platform = Platforms.iOS
 
     // MARK: - Life Cycle
@@ -75,12 +72,12 @@ final class TodayViewController: NSViewController {
         contentViewController.view.topAnchor.constraint(equalTo: view.topAnchor).isActive = true
         contentViewController.view.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
         contentViewController.view.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
-        contentViewController.isExpanded = UserDefaults.standard.bool(forKey: TodayViewController.defaultsExpandedKey)
+        contentViewController.isExpanded = App.userDefaults.bool(forKey: App.UserDefaultsKeys.isExpanded.rawValue)
 
         contentViewControllerObservations = [
             contentViewController.observe(\.isExpanded, options: [.old, .new]) { [unowned self] _, change in
                 guard change.newValue != change.oldValue else { return }
-                UserDefaults.standard.set(self.contentViewController.isExpanded, forKey: TodayViewController.defaultsExpandedKey)
+                App.userDefaults.set(self.contentViewController.isExpanded, forKey: App.UserDefaultsKeys.isExpanded.rawValue)
             },
         ]
     }
