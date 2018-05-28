@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		2421B59720BB0DFB00A7155A /* RatingStarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2421B59620BB0DFB00A7155A /* RatingStarView.swift */; };
+		245FBEC720BC8D68000760A7 /* RatingsWidget-Expanded.png in Resources */ = {isa = PBXBuildFile; fileRef = 245FBEC520BC8D68000760A7 /* RatingsWidget-Expanded.png */; };
+		245FBEC820BC8D68000760A7 /* RatingsWidget-Collapsed.png in Resources */ = {isa = PBXBuildFile; fileRef = 245FBEC620BC8D68000760A7 /* RatingsWidget-Collapsed.png */; };
 		24677D3020BAAD7A00F4D530 /* HTTPCookie+Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24677D2F20BAAD7A00F4D530 /* HTTPCookie+Utils.swift */; };
 		24677D3220BAB66900F4D530 /* ReviewSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 24677D3120BAB66900F4D530 /* ReviewSummaryViewController.swift */; };
 		24677D3720BAB9F000F4D530 /* TodayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 24677D3520BAB9F000F4D530 /* TodayViewController.xib */; };
@@ -129,6 +131,8 @@
 /* Begin PBXFileReference section */
 		240F2D5820BC878F00A21E3D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2421B59620BB0DFB00A7155A /* RatingStarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingStarView.swift; sourceTree = "<group>"; };
+		245FBEC520BC8D68000760A7 /* RatingsWidget-Expanded.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RatingsWidget-Expanded.png"; sourceTree = "<group>"; };
+		245FBEC620BC8D68000760A7 /* RatingsWidget-Collapsed.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "RatingsWidget-Collapsed.png"; sourceTree = "<group>"; };
 		24677D2F20BAAD7A00F4D530 /* HTTPCookie+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPCookie+Utils.swift"; sourceTree = "<group>"; };
 		24677D3120BAB66900F4D530 /* ReviewSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSummaryViewController.swift; sourceTree = "<group>"; };
 		24677D3620BAB9F000F4D530 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = TodayExtension/Base.lproj/TodayViewController.xib; sourceTree = "<group>"; };
@@ -235,6 +239,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		245FBEC420BC8CE3000760A7 /* Screenshots */ = {
+			isa = PBXGroup;
+			children = (
+				245FBEC620BC8D68000760A7 /* RatingsWidget-Collapsed.png */,
+				245FBEC520BC8D68000760A7 /* RatingsWidget-Expanded.png */,
+			);
+			path = Screenshots;
+			sourceTree = "<group>";
+		};
 		24677D2E20BAAD6900F4D530 /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
@@ -275,6 +288,7 @@
 				24BF900220B8999F0098E71A /* TodayConnectKitTests */,
 				24BF8FD620B88C3B0098E71A /* Frameworks */,
 				24BF8F9B20B888AA0098E71A /* Products */,
+				245FBEC420BC8CE3000760A7 /* Screenshots */,
 				24BF8FA120B888AB0098E71A /* Assets.xcassets */,
 				24BF8FCB20B88AAC0098E71A /* LICENSE.md */,
 				240F2D5820BC878F00A21E3D /* README.md */,
@@ -639,6 +653,8 @@
 				24BF8FA220B888AB0098E71A /* Assets.xcassets in Resources */,
 				24BF8FCC20B88AAC0098E71A /* LICENSE.md in Resources */,
 				24BF8FA520B888AB0098E71A /* Main.storyboard in Resources */,
+				245FBEC720BC8D68000760A7 /* RatingsWidget-Expanded.png in Resources */,
+				245FBEC820BC8D68000760A7 /* RatingsWidget-Collapsed.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
