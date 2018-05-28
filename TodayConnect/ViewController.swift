@@ -30,35 +30,65 @@ final class ViewController: NSViewController {
 
     @IBOutlet var securityCodeTextField: NSSecureTextField!
 
+    @IBOutlet var verifyButton: NSButton!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        api.authorizationApi { result in
-            print(result)
-            self.authorizationApi = result.value
-        }
+        api.authorizationApi { self.authorizationApi = $0.value }
     }
 
     @IBAction
     func logIn(_: Any) {
-        authorizationApi?.logIn(email: emailTextField.stringValue, password: passwordTextfield.stringValue) { print($0) }
-    }
+        guard let authorizationApi = authorizationApi else {
+            api.authorizationApi { self.authorizationApi = $0.value }
 
-    @IBAction
-    func verifyDevice(_: Any) {
-        authorizationApi?.verifySecurityCode(code: securityCodeTextField.stringValue) { result in
-            print(result)
+            let alert = NSAlert()
+            alert.messageText = "Authorization API not Available—Please Try Again!"
+            return alert.beginSheetModal(for: view.window!, completionHandler: nil)
+        }
 
-            self.authorizationApi?.trust { result in
-                print(result)
+        authorizationApi.logIn(email: emailTextField.stringValue, password: passwordTextfield.stringValue) { result in
+            let alert = NSAlert()
+
+            switch result.error {
+            case nil:
+                self.authorizationApi?.trust { _ in }
+                alert.messageText = "Logged in Successfully."
+            case AuthorizationApi.Errors.invalidCredentials?:
+                let alert = NSAlert()
+                alert.messageText = "Inavlid Apple-ID or Password."
+            case AuthorizationApi.Errors.requiresSecurityCode?:
+                return DispatchQueue.main.async {
+                    self.verifyButton.isEnabled = true
+                }
+            default:
+                alert.messageText = "Unimplemented Response Handler."
+            }
+
+            DispatchQueue.main.async {
+                alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
             }
         }
     }
 
     @IBAction
-    func test(_: Any) {
-        api.reviewSummary(forAppId: "1317593772", platform: .iOS, countryCode: "DE") { result in
-            print(result)
+    func verifySecurityCode(_: Any) {
+        authorizationApi?.verifySecurityCode(code: securityCodeTextField.stringValue) { result in
+            let alert = NSAlert()
+
+            switch result.error {
+            case nil:
+                self.authorizationApi?.trust { _ in }
+                alert.messageText = "Logged in Successfully."
+            case AuthorizationApi.Errors.invalidSecurityCode?:
+                alert.messageText = "Invalid Security Code."
+            default:
+                alert.messageText = "Unimplemented Response Handler."
+            }
+
+            DispatchQueue.main.async {
+                alert.beginSheetModal(for: self.view.window!, completionHandler: nil)
+            }
         }
     }
 }

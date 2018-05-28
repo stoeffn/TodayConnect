@@ -685,8 +685,9 @@
         <scene sceneID="R2V-B0-nI4">
             <objects>
                 <windowController id="B8D-0N-5wS" sceneMemberID="viewController">
-                    <window key="window" title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" id="IQv-IB-iLA">
-                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+                    <window key="window" title="TodayConnect" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" restorable="NO" oneShot="NO" releasedWhenClosed="NO" showsToolbarButton="NO" visibleAtLaunch="NO" animationBehavior="default" titlebarAppearsTransparent="YES" id="IQv-IB-iLA">
+                        <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES"/>
+                        <windowCollectionBehavior key="collectionBehavior" fullScreenNone="YES"/>
                         <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
                         <rect key="contentRect" x="196" y="240" width="480" height="270"/>
                         <rect key="screenRect" x="0.0" y="0.0" width="1680" height="1027"/>
@@ -710,29 +711,19 @@
                         <rect key="frame" x="0.0" y="0.0" width="480" height="270"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="y9C-g5-1Rl">
-                                <rect key="frame" x="17" y="160" width="77" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Log In" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="NMf-al-Isy">
-                                    <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
-                                    <font key="font" metaFont="system"/>
-                                </buttonCell>
-                                <connections>
-                                    <action selector="logIn:" target="XfG-lQ-9wD" id="ro3-bw-SWM"/>
-                                </connections>
-                            </button>
-                            <textField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="GlS-QH-udV">
-                                <rect key="frame" x="20" y="228" width="96" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Email" drawsBackground="YES" id="EW4-vN-97U">
+                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="GlS-QH-udV">
+                                <rect key="frame" x="128" y="206" width="224" height="22"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" borderStyle="bezel" placeholderString="Apple-ID" drawsBackground="YES" id="EW4-vN-97U">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
+                                <connections>
+                                    <outlet property="nextKeyView" destination="2Ah-zb-pfq" id="SDb-VV-ESs"/>
+                                </connections>
                             </textField>
-                            <secureTextField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2Ah-zb-pfq">
-                                <rect key="frame" x="20" y="196" width="96" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <secureTextField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="2Ah-zb-pfq">
+                                <rect key="frame" x="128" y="174" width="151" height="22"/>
                                 <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Password" drawsBackground="YES" usesSingleLineMode="YES" id="tLu-Tf-748">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -742,9 +733,8 @@
                                     </allowedInputSourceLocales>
                                 </secureTextFieldCell>
                             </secureTextField>
-                            <secureTextField verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KDl-EN-aK7">
-                                <rect key="frame" x="20" y="124" width="96" height="22"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            <secureTextField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KDl-EN-aK7">
+                                <rect key="frame" x="128" y="120" width="151" height="22"/>
                                 <secureTextFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" borderStyle="bezel" placeholderString="Security Code" drawsBackground="YES" usesSingleLineMode="YES" id="5Sk-ta-hS6">
                                     <font key="font" metaFont="system"/>
                                     <color key="textColor" name="textColor" catalog="System" colorSpace="catalog"/>
@@ -754,34 +744,63 @@
                                     </allowedInputSourceLocales>
                                 </secureTextFieldCell>
                             </secureTextField>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="je0-Ka-VcE">
-                                <rect key="frame" x="17" y="88" width="76" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Verify" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2zb-Rn-ina">
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="je0-Ka-VcE">
+                                <rect key="frame" x="281" y="113" width="77" height="32"/>
+                                <buttonCell key="cell" type="push" title="Verify" bezelStyle="rounded" alignment="center" enabled="NO" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="2zb-Rn-ina">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="verifyDevice:" target="XfG-lQ-9wD" id="Jua-0S-LKz"/>
+                                    <action selector="verifySecurityCode:" target="XfG-lQ-9wD" id="Jua-0S-LKz"/>
                                 </connections>
                             </button>
-                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ze5-de-D5X">
-                                <rect key="frame" x="14" y="13" width="66" height="32"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                                <buttonCell key="cell" type="push" title="Test" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="jBc-zv-hPe">
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="QU7-yy-y59">
+                                <rect key="frame" x="14" y="16" width="452" height="11"/>
+                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" alignment="center" title="This login window is pretty much under construction and lacks proper error handling." id="F4G-tK-G5p">
+                                    <font key="font" metaFont="miniSystem"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <button verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="y9C-g5-1Rl">
+                                <rect key="frame" x="281" y="167" width="77" height="32"/>
+                                <buttonCell key="cell" type="push" title="Log In" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="NMf-al-Isy">
                                     <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
                                     <font key="font" metaFont="system"/>
                                 </buttonCell>
                                 <connections>
-                                    <action selector="test:" target="XfG-lQ-9wD" id="rAt-Si-weu"/>
+                                    <action selector="logIn:" target="XfG-lQ-9wD" id="Bvo-7k-kDy"/>
                                 </connections>
                             </button>
                         </subviews>
+                        <constraints>
+                            <constraint firstItem="GlS-QH-udV" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="128" id="0Vn-Zp-cqu"/>
+                            <constraint firstItem="je0-Ka-VcE" firstAttribute="leading" secondItem="y9C-g5-1Rl" secondAttribute="leading" id="364-W8-lbu"/>
+                            <constraint firstItem="je0-Ka-VcE" firstAttribute="trailing" secondItem="y9C-g5-1Rl" secondAttribute="trailing" id="BEW-IH-1pa"/>
+                            <constraint firstItem="y9C-g5-1Rl" firstAttribute="trailing" secondItem="GlS-QH-udV" secondAttribute="trailing" id="EXE-MN-y45"/>
+                            <constraint firstItem="je0-Ka-VcE" firstAttribute="baseline" secondItem="KDl-EN-aK7" secondAttribute="baseline" id="Gij-3P-6cS"/>
+                            <constraint firstItem="2Ah-zb-pfq" firstAttribute="leading" secondItem="GlS-QH-udV" secondAttribute="leading" id="ITd-wu-nTO"/>
+                            <constraint firstItem="2Ah-zb-pfq" firstAttribute="top" secondItem="GlS-QH-udV" secondAttribute="bottom" constant="10" id="Kut-td-fbW"/>
+                            <constraint firstItem="je0-Ka-VcE" firstAttribute="leading" secondItem="KDl-EN-aK7" secondAttribute="trailing" constant="8" id="Nvy-2U-8wx"/>
+                            <constraint firstItem="y9C-g5-1Rl" firstAttribute="leading" secondItem="2Ah-zb-pfq" secondAttribute="trailing" constant="8" id="PJc-RL-nzk"/>
+                            <constraint firstItem="KDl-EN-aK7" firstAttribute="top" secondItem="y9C-g5-1Rl" secondAttribute="bottom" constant="32" id="ScQ-D3-eL9"/>
+                            <constraint firstAttribute="trailing" secondItem="QU7-yy-y59" secondAttribute="trailing" constant="16" id="VwD-LO-5X4"/>
+                            <constraint firstItem="y9C-g5-1Rl" firstAttribute="baseline" secondItem="2Ah-zb-pfq" secondAttribute="baseline" id="dVa-AR-cA5"/>
+                            <constraint firstItem="QU7-yy-y59" firstAttribute="leading" secondItem="m2S-Jp-Qdl" secondAttribute="leading" constant="16" id="jXZ-gy-LFd"/>
+                            <constraint firstAttribute="bottom" secondItem="QU7-yy-y59" secondAttribute="bottom" constant="16" id="lAI-WC-DnW"/>
+                            <constraint firstAttribute="trailing" secondItem="GlS-QH-udV" secondAttribute="trailing" constant="128" id="pdG-av-IhQ"/>
+                            <constraint firstItem="KDl-EN-aK7" firstAttribute="leading" secondItem="2Ah-zb-pfq" secondAttribute="leading" id="tfa-pe-gzp"/>
+                            <constraint firstItem="GlS-QH-udV" firstAttribute="top" secondItem="m2S-Jp-Qdl" secondAttribute="top" constant="42" id="ylS-u9-g76"/>
+                        </constraints>
+                        <connections>
+                            <outlet property="nextKeyView" destination="GlS-QH-udV" id="rD0-M1-bRK"/>
+                        </connections>
                     </view>
                     <connections>
                         <outlet property="emailTextField" destination="GlS-QH-udV" id="sbU-Iz-sk4"/>
                         <outlet property="passwordTextfield" destination="2Ah-zb-pfq" id="12M-do-0RU"/>
                         <outlet property="securityCodeTextField" destination="KDl-EN-aK7" id="AlZ-Dc-aAV"/>
+                        <outlet property="verifyButton" destination="je0-Ka-VcE" id="b5t-NB-h0f"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
