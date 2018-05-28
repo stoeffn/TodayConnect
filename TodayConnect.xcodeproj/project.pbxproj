@@ -127,6 +127,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		240F2D5820BC878F00A21E3D /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		2421B59620BB0DFB00A7155A /* RatingStarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingStarView.swift; sourceTree = "<group>"; };
 		24677D2F20BAAD7A00F4D530 /* HTTPCookie+Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HTTPCookie+Utils.swift"; sourceTree = "<group>"; };
 		24677D3120BAB66900F4D530 /* ReviewSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewSummaryViewController.swift; sourceTree = "<group>"; };
@@ -276,6 +277,7 @@
 				24BF8F9B20B888AA0098E71A /* Products */,
 				24BF8FA120B888AB0098E71A /* Assets.xcassets */,
 				24BF8FCB20B88AAC0098E71A /* LICENSE.md */,
+				240F2D5820BC878F00A21E3D /* README.md */,
 			);
 			sourceTree = "<group>";
 		};
