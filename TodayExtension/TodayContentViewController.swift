@@ -88,7 +88,7 @@ final class TodayContentViewController: NSViewController {
     }
 
     override func prepare(for segue: NSStoryboardSegue, sender _: Any?) {
-        guard let identifier = segue.identifier?.rawValue else { return }
+        guard let identifier = segue.identifier else { return }
 
         switch Segues(rawValue: identifier) {
         case .reviewSummary?:

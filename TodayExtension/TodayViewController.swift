@@ -56,7 +56,7 @@ final class TodayViewController: NSViewController {
     // MARK: Child Controllers
 
     private lazy var contentViewController: TodayContentViewController = {
-        let storyboard = NSStoryboard(name: NSStoryboard.Name(rawValue: "TodayExtension"), bundle: nil)
+        let storyboard = NSStoryboard(name: "TodayExtension", bundle: nil)
         guard let viewController = storyboard.instantiateInitialController() as? TodayContentViewController else { fatalError() }
         return viewController
     }()
@@ -65,7 +65,7 @@ final class TodayViewController: NSViewController {
 
     private func initUI() {
         view.addSubview(contentViewController.view)
-        addChildViewController(contentViewController)
+        addChild(contentViewController)
 
         contentViewController.view.translatesAutoresizingMaskIntoConstraints = false
         contentViewController.view.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
